@@ -1,0 +1,5 @@
+install.sh
+dots
+.dots-ignore
+.git
+.gitignore
