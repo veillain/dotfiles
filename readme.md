@@ -1,8 +1,8 @@
 <img src="assets/logo.png" width="800em"/> <br>
 
 <!-- badges: start -->
-[![GitHub license](https://badgen.net/github/license/veillain/dotfiles)](https://github.com/echasnovski/mini.nvim/blob/main/LICENSE)
-[![GitHub tag](https://badgen.net/github/tag/veillain/dotfiles)](https://github.com/echasnovski/mini.nvim/tags/)
+[![GitHub license](https://badgen.net/github/license/veillain/dotfiles)](https://github.com/veillain/dotfiles/blob/main/LICENSE)
+[![GitHub tag](https://badgen.net/github/tag/veillain/dotfiles)](https://github.com/veillain/dotfiles/tags/)
 [![Current version](https://badgen.net/badge/Current%20version/development/cyan)](https://github.com/veillain/dotfiles/blob/main/CHANGELOG.md)
 <!-- badges: end -->
 
