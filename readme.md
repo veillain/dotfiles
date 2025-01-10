@@ -10,14 +10,13 @@
 This is my daily driver dotfiles, it uses a lot of waybar and bash scripts. Its also uses Tokyonight themes. Feel free to use it!
 
 ## **Table of Contents**
-- [About](#about)
 - [Shoutout](#shoutout)
 - [Installation](#installation)
 - [Gallery](#gallery)
 - [Keybindings](#keybindings)
 
 ## **Shoutout**
-<img src="https://" align="right" width="400px">
+<img src="assets/shoutout.png" align="right" width="400px">
 
 - **[Hyprland](https://github.com/hyprwm/hyprland)**: Window Manager / Compositor
 - **[Waybar](https://github.com/Alexays/Waybar)**: Bar and Widgets
@@ -29,7 +28,7 @@ This is my daily driver dotfiles, it uses a lot of waybar and bash scripts. Its 
 
 and others as well.
 
-# **Installation**
+## **Installation**
 ### Distros
 I'm only using **Arch linux** and will only update the Installation Script for **Arch based** distribution, otherwise you can install everything manually.
 
@@ -50,10 +49,9 @@ wip.
 ## **Gallery**
 | Floating | Tiling |
 | - | - |
-| ![desktop](https://) | ![tiling](https://) |
+| ![desktop](assets/desktop.png) | ![tiling](assets/tiling.png) |
 | Launcher | Lockscreen |
-| - | - |
-| ![rofi](https://) | ![hyprlock](https://) |
+| ![rofi](assets/rofi.png) | ![hyprlock](assets/hyprlock.png) |
 
 ## **Keybindings**
 These are the basic keybinds. Read through [Wiki](https://github.com/veillain/dotfiles/wiki) for more keybinds.
