@@ -4,10 +4,9 @@
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/veillain/dotfiles/main?style=for-the-badge&labelColor=%231a1b26&color=%23c0caf5)
 ![GitHub Repo stars](https://img.shields.io/github/stars/veillain/dotfiles?style=for-the-badge&logo=polestar&logoColor=%23c0caf5&labelColor=%231a1b26&color=%23c0caf5)
 ![GitHub repo size](https://img.shields.io/github/repo-size/veillain/dotfiles?style=for-the-badge&logo=dropbox&logoColor=%23c0caf5&label=Dots%20Size&labelColor=%231a1b26&color=%23c0caf5)
-<img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/veillain?style=for-the-badge&logo=kofi&logoColor=%23c0caf5&label=Supports&labelColor=%231a1b26&color=%23c0caf5&link=ko-fi.com%2Fveillain&link=tako.id%2Fveillain">
 <!-- badges: end -->
 
-This is my daily driver dotfiles, it uses a lot of waybar and bash scripts. Its also uses Tokyonight themes. Feel free to use it!
+This is my daily driver dotfiles, it uses a bunch of waybar and bash scripts. Its also uses Tokyonight themes. Feel free to use it!
 
 ## **Table of Contents**
 - [Shoutout](#shoutout)
