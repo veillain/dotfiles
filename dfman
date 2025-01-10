@@ -43,6 +43,14 @@ use 'dfman {-h --help}' to show this."
 set (){
     if [ -z "$choice" ]; then
         echo "Usage: dfman set </path/to/your/dotfiles>"
+    elif [[ "$choice" = . ]]; then
+        rn=$(pwd)
+        echo "path = $rn" > $dfman_config
+        if [ $? -eq 0 ]; then
+            echo "Dotfiles path changed to '$rn'"
+        else
+            echo "Failed to change the path"
+        fi
     else
         echo "path = $choice" > $dfman_config
         if [ $? -eq 0 ]; then
