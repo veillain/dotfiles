@@ -1,0 +1,139 @@
+#!/bin/bash
+#environments
+options=$1
+choice=$2
+config_path="$HOME/.config"
+dfman_config="$HOME/.config/dfman/config.sh"
+dotfile_path=$(cat $dfman_config | grep path | awk '{print $3}')
+
+confirm=""
+whatisit=""
+confirmation (){
+    case $whatisit in
+        remove) echo -n "Are you sure to remove ($choice) from dotfiles? (Y/n) " ;;
+        syncall) echo -n "Syncing all will overwrite the folder/file(s) in the dotfiles. Are you sure? (Y/n) " ;;
+        overwrite) echo -n "Are you sure to overwrite ($choice)? (Y/n) " ;;
+        *) echo -n "Are you sure (Y/n) " ;;
+    esac
+    read answer
+    case $answer in
+        [yY]) confirm="yes" ;;
+        [nN]) confirm="no" ;;
+        *) confirm="yes" ;;
+    esac
+}
+
+wrong_input (){
+    echo "wrong input. use 'dfman -h' for help."
+}
+
+help (){
+    echo "usage:  dfman <operations> [...]
+operations:
+    dfman {-h --help}                       Show this help
+    dfman {-l --list}                       Show List of Configuration included in dotfiles
+    dfman {--set} [path/to/dotfiles]        Set your dotfiles path
+    dfman {-s --sync} [package(s)]          Copy your config into dotfiles
+    dfman {-r --remove} [package(s)]        Remove your config from dotfiles
+    dfman {-o --overwrite} [package(s)]     Copy and Overwrite the original one with symlinks from dotfiles
+
+use 'dfman {-h --help}' to show this."
+}
+
+set (){
+    if [ -z "$choice" ]; then
+        echo "Usage: dfman set </path/to/your/dotfiles>"
+    else
+        echo "path = $choice" > $dfman_config
+        if [ $? -eq 0 ]; then
+            echo "Dotfiles path changed to '$choice'"
+        else
+            echo "Failed to change the path"
+        fi
+    fi  
+}
+
+sync (){
+    check=$(ls $config_path/$choice)
+    if [ "$check" ]; then
+        cp -rf $config_path/$choice $dotfile_path
+        if [ $? -eq 0 ]; then
+            echo "Copied $choice Config files into dotfiles($dotfile_path)."
+            echo "Use 'dfman -l' to see all files inside dotfiles!"
+        else
+            echo "Failed to copy $choice into dotfiles"
+        fi
+    else
+        echo "$choice is nowhere inside $config_path"
+    fi
+}
+
+remove (){
+    check=$(ls $dotfile_path/$choice)
+    if [ "$check" ]; then
+        whatisit="remove"
+        confirmation
+        if [[ "$confirm" == yes ]]; then
+            rm -rf $dotfile_path/$choice
+            if [ $? -eq 0 ]; then
+                echo "$choice has been removed from dotfiles($dotfile_path)."
+            else
+                echo "failed to remove $choice from dotfiles($dotfile_path)."
+            fi
+        else
+            echo "Process cancelled."
+        fi
+    else
+        echo "$choice is nowhere in dotfiles."
+    fi
+}
+
+overwrite (){
+    check=$(ls $config_path/$choice)
+    if [ "$check" ]; then
+        whatisit="overwrite"
+        confirmation
+        if [[ "$confirm" == yes ]]; then 
+            mv -f $config_path/$choice $dotfile_path
+            if true; then 
+                ln -s $dotfile_path/$choice $config_path
+                if [ $? -eq 0 ]; then
+                    echo "Overwriting ($choice) success"
+                else
+                    echo "fail to Overwrite ($choice)"
+                fi
+            fi
+        else
+            echo "process cancelled."
+        fi
+    fi
+}
+
+list (){
+    check=$(ls $dotfile_path)
+    if [ "$check" ]; then
+        ls -la $dotfile_path | awk '{print $9}'
+    else
+        echo "there's nothing in your dotfiles($dotfile_path)."
+    fi
+}
+
+
+#first-time-run
+echo ""
+
+check=$(ls $HOME/.config/dfman)
+if [ ! "$check" ]; then
+    mkdir -p $HOME/.config/dfman
+    echo "path = " > $dfman_config
+fi
+
+case $1 in
+    --set|set) set ;;
+    -[sS]|--sync) sync ;;
+    -[rR]|--remove) remove ;;
+    -[oO]|--overwrite) overwrite ;;
+    -[lL]|--list) list ;;
+    -[hH]|--help) help ;;
+    *) wrong_input ;;
+esac
