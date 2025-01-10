@@ -1,5 +1,4 @@
-<h1 align="center"><b> Veillain's Dotfiles </b></h1>
-<p align="center">📜 A Arch linux w/ Hyprland and Waybar configuration</p>
+<img src="assets/logo.png" width="800em"/> <br>
 
 <!-- badges: start -->
 [![GitHub license](https://badgen.net/github/license/veillain/dotfiles)](https://github.com/echasnovski/mini.nvim/blob/main/LICENSE)
