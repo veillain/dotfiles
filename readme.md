@@ -29,12 +29,12 @@ This is my daily driver dotfiles, it uses a lot of waybar and bash scripts. Its 
 and others as well.
 
 ## **Installation**
-### Distros
-I'm only using **Arch linux** and will only update the Installation Script for **Arch based** distribution, otherwise you can install everything manually.
+> [!NOTE]
+> I'm only using **Arch linux** and will only update the Installation Script for **Arch based** distribution, otherwise you can install everything manually.
 
-### Important Notes!
-- The installation script uses **bash**, so install it if you haven't.
-- You must be **ROOT** when run the script.
+> [!IMPORTANT]
+> - The installation script uses **bash**, so install it if you haven't.
+> - You can't be **ROOT** when run the script. Make sure you are **not ROOT!** otherwise it won't work.
 
 - Clone with `git clone`, cd and run the Installation script
 ```bash
@@ -55,7 +55,8 @@ wip.
 
 ## **Keybindings**
 These are the basic keybinds. Read through [Wiki](https://github.com/veillain/dotfiles/wiki) for more keybinds.
-> Note: Mod = Alt left
+> [!NOTE]
+> `Mod` = `Left Alt`
 
 | Keys | Function |
 | - | - |
@@ -71,4 +72,6 @@ These are the basic keybinds. Read through [Wiki](https://github.com/veillain/do
 ## **License**
 This project is licensed under the GNU General Public License V3.0 See the [LICENSE](LICENSE) file for details.
 
-<h1 align="center"><b> ThankYou for Coming, See ya! </b></h1>
+## **Supports**
+You can support me / my work with:
+<a href='https://ko-fi.com/veillain' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
