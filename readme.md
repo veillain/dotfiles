@@ -1,9 +1,10 @@
 <img src="assets/logo.png" width="800em"/> <br>
 
 <!-- badges: start -->
-[![GitHub license](https://badgen.net/github/license/veillain/dotfiles)](https://github.com/veillain/dotfiles/blob/main/LICENSE)
-[![GitHub tag](https://badgen.net/github/tag/veillain/dotfiles)](https://github.com/veillain/dotfiles/tags/)
-[![Current version](https://badgen.net/badge/Current%20version/development/cyan)](https://github.com/veillain/dotfiles/blob/main/CHANGELOG.md)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/veillain/dotfiles/main?style=for-the-badge&labelColor=%231a1b26&color=%23c0caf5)
+![GitHub Repo stars](https://img.shields.io/github/stars/veillain/dotfiles?style=for-the-badge&logo=polestar&logoColor=%23c0caf5&labelColor=%231a1b26&color=%23c0caf5)
+![GitHub repo size](https://img.shields.io/github/repo-size/veillain/dotfiles?style=for-the-badge&logo=dropbox&logoColor=%23c0caf5&label=Dots%20Size&labelColor=%231a1b26&color=%23c0caf5)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/veillain?style=for-the-badge&logo=kofi&logoColor=%23c0caf5&label=Supports&labelColor=%231a1b26&color=%23c0caf5&link=ko-fi.com%2Fveillain&link=tako.id%2Fveillain)
 <!-- badges: end -->
 
 This is my daily driver dotfiles, it uses a lot of waybar and bash scripts. Its also uses Tokyonight themes. Feel free to use it!
