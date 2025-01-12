@@ -1,0 +1,35 @@
+#!/bin/bash
+choice=$1
+
+if [ $choice = 1 ]; then
+  tempat="/tmp/blurbg-status"
+  printf "" > $tempat
+	notify-send "BB Activated!" -r 9001 -t 1000
+  while true; do
+		running="$(cat $tempat)"
+		id=$(ps -ef | grep '[w]aybar -c' | grep blurbg | awk '{print $2}')
+		status="$(hyprctl activeworkspace | grep windows: | awk '{print $2}')"
+
+
+		if [ "$status" -gt 0 ]; then
+			if [ ! "$running" = 1 ]; then
+				kill $id
+                printf 1 > $tempat
+                waybar -c $HOME/.config/waybar/blurbg/config.jsonc -s $HOME/.config/waybar/blurbg/style.css &
+		    fi
+		fi
+
+		if [ ! "$status" -gt 0 ]; then
+			if [ ! "$running" = 0 ]; then
+                printf 0 > $tempat
+				kill $id
+			fi
+		fi
+	done
+else
+	notify-send Killed -r 9001 -t 1000
+	killall waybar &
+	killall blurbg &
+	killall swaync &
+fi
+

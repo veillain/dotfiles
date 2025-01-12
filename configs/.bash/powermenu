@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# options
+shutdown='󰐥 Power Off'
+reboot='󰜉 Reboot'
+lock='󰌾 Lock'
+suspend='󰤄 Suspend'
+logout='󰍃 Log Out'
+close='Close'
+
+CHOSEN=$(printf "$lock\n$suspend\n$reboot\n$shutdown\n$logout\n$close" | rofi -dmenu -no-case-sensitive)
+
+case "$CHOSEN" in
+	"$lock") hyprlock ;;
+	"$suspend") systemctl suspend-then-hibernate ;;
+	"$reboot") reboot ;;
+	"$shutdown") poweroff ;;
+	"$logout") hyprctl dispatch exit ;;
+	*) exit 1 ;;
+esac

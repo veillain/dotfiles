@@ -1,0 +1,20 @@
+#!/bin/sh
+
+currentbrightness=$(brightnessctl i | grep -oP '\(\K[^%\)]+')
+if [ "$currentbrightness" -lt 30 ] && [ "$1" = "down" ]; then exit 1; fi
+
+send_notification() {
+	brightness=$(brightnessctl i | grep -oP '\(\K[^%\)]+')
+	dunstify -a "Backlight" -u low -r 9994 -h int:value:"$brightness" -i "brightness" "Brightness" "Currently at $brightness%" -t 1000
+}
+
+case $1 in
+	--up)
+		brightnessctl set 5%+
+		send_notification "$1"
+		;;
+	--down)
+		brightnessctl set 5%-
+		send_notification "$1"
+		;;
+esac
