@@ -1,0 +1,169 @@
+#!/bin/bash
+#environments
+options=$1
+choice=(
+    $2
+    $3
+    $4
+    $5
+    $6
+    $7
+    $8
+    $9
+)
+config_path="$HOME/.config"
+dotman_config="$HOME/.config/dotman/config.sh"
+dotfile_path=$(cat $dotman_config | grep path | awk '{print $3}')
+
+confirm=""
+whatisit=""
+confirmation (){
+    case $whatisit in
+        remove) echo -n "Are you sure to remove ($choice) from dotfiles? (Y/n) " ;;
+        syncall) echo -n "Syncing all will overwrite the folder/file(s) in the dotfiles. Are you sure? (Y/n) " ;;
+        overwrite) echo -n "Are you sure to overwrite ($choice)? (Y/n) " ;;
+        *) echo -n "Are you sure (Y/n) " ;;
+    esac
+    read answer
+    case $answer in
+        [yY]) confirm="yes" ;;
+        [nN]) confirm="no" ;;
+        *) confirm="yes" ;;
+    esac
+}
+
+wrong_input (){
+    echo "wrong input. use 'dotman -h' for help."
+}
+
+path (){
+    echo "Your path is: '$dotfile_path'"
+}
+
+help (){
+    echo "usage:  dotman <operations> [...]
+operations:
+    dotman {-h --help}                       Show this help
+    dotman {-l --list}                       Show List of Configuration included in dotfiles
+    dotman {--set} [path/to/dotfiles]        Set your dotfiles path
+    dotman {--path}                          Check your dotfiles path
+    dotman {-s --sync} [package(s)]          Copy your config into dotfiles
+    dotman {-r --remove} [package(s)]        Remove your config from dotfiles
+    dotman {-o --overwrite} [package(s)]     Copy and Overwrite the original one with symlinks from dotfiles
+
+use 'dotman {-h --help}' to show this."
+}
+
+set (){
+    if [ -z "$choice" ]; then
+        echo "Usage: dotman set </path/to/your/dotfiles>"
+    elif [[ "$choice" = . ]]; then
+        rn=$(pwd)
+        echo "path = $rn" > $dotman_config
+        if [ $? -eq 0 ]; then
+            echo "Dotfiles path changed to '$rn'"
+        else
+            echo "Failed to change the path"
+        fi
+    else
+        echo "path = $choice" > $dotman_config
+        if [ $? -eq 0 ]; then
+            echo "Dotfiles path changed to '$choice'"
+        else
+            echo "Failed to change the path"
+        fi
+    fi  
+}
+
+sync (){
+    for pkg in ${choice[@]}; do
+        check=$(ls $config_path/$pkg)
+        if [ "$check" ]; then
+            cp -rf $config_path/$pkg $dotfile_path
+            if [ $? -eq 0 ]; then
+                echo "Copied $pkg Config files into dotfiles($dotfile_path)." 
+            else
+                echo "Failed to copy $pkg into dotfiles"
+            fi
+        else
+            echo "$pkg is nowhere inside $config_path"
+        fi
+    done
+    if true; then
+        echo ""
+        echo "Use 'dotman -l' to see all files inside dotfiles!"
+    fi
+}
+
+remove (){
+    for pkg in ${choice[@]}; do
+        check=$(ls $dotfile_path/$pkg)
+        if [ "$check" ]; then
+            whatisit="remove"
+            confirmation
+            if [[ "$confirm" == yes ]]; then
+                rm -rf $dotfile_path/$pkg
+                if [ $? -eq 0 ]; then
+                    echo "$pkg has been removed from dotfiles($dotfile_path)."
+                else
+                    echo "failed to remove $pkg from dotfiles($dotfile_path)."
+                fi
+            else
+                echo "Process cancelled."
+            fi
+        else
+            echo "$pkg is nowhere in dotfiles."
+        fi
+    done
+}
+
+overwrite (){
+    check=$(ls $config_path/$choice)
+    if [ "$check" ]; then
+        whatisit="overwrite"
+        confirmation
+        if [[ "$confirm" == yes ]]; then 
+            mv -f $config_path/$choice $dotfile_path
+            if true; then 
+                ln -s $dotfile_path/$choice $config_path
+                if [ $? -eq 0 ]; then
+                    echo "Overwriting ($choice) success"
+                else
+                    echo "fail to Overwrite ($choice)"
+                fi
+            fi
+        else
+            echo "process cancelled."
+        fi
+    fi
+}
+
+list (){
+    check=$(ls $dotfile_path)
+    if [ "$check" ]; then
+        ls -la $dotfile_path | awk '{print $9}' | grep -vE '^\.$|^\.\.$' | grep -v '^$'
+    else
+        echo "there's nothing in your dotfiles($dotfile_path)."
+    fi
+}
+
+
+#first-time-run
+echo ""
+
+check=$(ls $HOME/.config/dotman)
+if [ ! "$check" ]; then
+    mkdir -p $HOME/.config/dotman
+    echo "path = " > $dotman_config
+fi
+
+case $1 in
+    --path|path) path ;;
+    --set|set) set ;;
+    -[sS]|--sync) sync ;;
+    -[rR]|--remove) remove ;;
+    -[oO]|--overwrite) overwrite ;;
+    -[lL]|--list) list ;;
+    -[hH]|--help) help ;;
+    *) wrong_input ;;
+esac

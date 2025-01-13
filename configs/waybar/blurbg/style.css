@@ -1,0 +1,6 @@
+@import "../colors.css";
+
+window#waybar {
+  background-color: alpha(@background, 0.1);
+  color: transparent;
+}

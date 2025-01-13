@@ -1,0 +1,48 @@
+#!/bin/bash
+
+sync_text="Are You sure want to sync this config? (Y/n) "
+remove_text="Are you sure want to remove this config from dotfile? (Y/n) "
+overwrite_text="Are you sure want to overwrite this config? (Y/n) "
+
+sync_cmd="cp -rf /path/pathetol /pathetik"
+remove_cmd="rm -rf /pathetik"
+overwrite_cmd="ln -s /pathetik /pathetik"
+
+text=""
+confirm=""
+
+confirmation (){
+    echo -n $text
+    read answer
+    case $answer in
+        [yY]) confirm="yes" ;;
+        [nN]) confirm="no" ;;
+        *) confirm="yes" ;;
+    esac
+    if [[ "$confirm" == yes ]]; then
+        $cmd
+    else
+        echo "Process cancelled"
+    fi
+}
+
+case $1 in
+    -S)
+        text=$sync_text
+        cmd=$sync_cmd
+        confirmation
+        ;;
+    -R)
+        text=$remove_text
+        cmd=$remove_cmd
+        confirmation
+        ;;
+    -O)
+        text=$overwrite_text
+        cmd=$overwrite_cmd
+        confirmation
+        ;;
+    *)
+        echo "wrong input" 
+        ;;
+esac

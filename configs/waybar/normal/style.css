@@ -1,0 +1,148 @@
+* {
+    font-family: 'FiraCode Nerd Font';
+    font-size: 11px;
+}
+
+@import "../colors.css";
+
+window#waybar {
+    background-color: transparent;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar > box {
+    border-radius: 0 3 3 0; 
+    border: 0px #000000;
+    margin: 4px; 
+    background-color: @background; 
+    /*box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1); */
+}
+
+#workspaces button {
+    border-radius: 3;
+    background-color: transparent;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    margin: 2 10;
+    padding: 5 5;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    color: inherit;
+    background-color: @blue;
+}
+#workspaces button.active:hover {
+    background-color: @blue-lighter;
+}
+
+#workspaces button:hover {
+    color: inherit;
+    background: #282c34;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+}
+
+#workspaces button.urgent {
+    background-color: @muted-red;
+}
+
+#battery,
+#backlight,
+#pulseaudio,
+#clock {
+    padding: 0 10px;
+  }
+
+#battery {
+    background-color: transparent;
+}
+
+#battery.charging, #battery.plugged {
+    color: #a9b665;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #ea6962;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: transparent;
+}
+
+#network {
+    background-color: transparent;
+}
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+#pulseaudio {
+    background-color: transparent;
+}
+
+#pulseaudio.muted {
+    color: #f53c3c;
+}
+
+#custom-button {
+    background-color: transparent;
+    border-radius: 3;
+    font-size: 16;
+    margin: 10;
+    padding: 8 3 8 1;
+}
+#custom-button:hover {
+    background-color: @module-bg;
+}
+
+#custom-newworkspaces {
+  border-radius: 3;
+  margin: 3 10 10 10;
+  padding: 9 3;
+}
+#custom-newworkspaces:hover {
+    background-color: @module-bg;
+}
+
+#clock {
+    border-radius: 3;
+    font-size: 12;
+    margin: 10;
+    padding: 10 10 10 10;
+}
+#clock:hover {
+    background-color: @module-bg;
+}
+
+tooltip {
+  background-color: transparent;
+  border: none;
+}
+tooltip label {
+  background-color: @background;
+  padding: 10;
+  border-radius: 3;
+}

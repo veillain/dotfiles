@@ -1,0 +1,42 @@
+* {
+    font-family: 'NotoMono Nerd Font';
+    font-size: 11px;
+}
+
+@import "../../colors.css";
+
+window#waybar {
+    background-color: transparent;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar > box {
+    border-radius: 3;
+    background-color: transparent;
+  margin: 4px; 
+}
+
+
+#confirm {
+    background-color: alpha(@background, 0.9);
+    border-radius: 3;
+}
+
+#custom-title {
+    margin: 10 10 0 10;
+    padding: 10 10 5 10;
+}
+
+#custom-no {
+    margin: 0 10 10 10;
+    padding: 5 51 10 51;
+    background-color: @module-bg
+}
+
+#custom-yes {
+    margin: 0 10 10 10;
+    padding: 5 46 10 46;
+    background-color: @module-bg;
+}
