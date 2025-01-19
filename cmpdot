@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function devtool {
+    echo "default"
+}
+
+function _devtool {
+    local AVAILABLE_COMMANDS="add commit"
+
+    COMPREPLY=()
+
+    if [ "$COMP_CWORD" -eq 1 ]; then
+        local CURRENT_WORD=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=($( compgen -W "$AVAILABLE_COMMANDS" -- "CURRENT_WORD" ))
+    fi
+}
+
+complete -F _devtool devtool

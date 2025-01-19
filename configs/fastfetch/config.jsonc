@@ -57,9 +57,9 @@
       },
 
       {
-          "type": "os",
-          "format": "{3}",
-          "key": "dt",
+          "type": "cpuusage",
+          "format": "{1}",
+          "key": "cp",
           "keyColor": "35"
       },
 

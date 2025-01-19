@@ -1,0 +1,31 @@
+@define-color background #1a1b26;
+@define-color foreground #c0caf5;
+@define-color module-bg #24283b;
+@define-color blue #2C344D;
+@define-color blue-lighter #1D336C;
+@define-color muted-green #2d6a4f;
+@define-color muted-green-lighter #3a7e5f;
+@define-color deep-brown #3f3f44;
+@define-color deep-brown-lighter #585858;
+@define-color muted-red #f38ba8;
+
+@define-color white #E1E2E7;
+
+@define-color light-blue #7AA2F7;
+@define-color light-cyan #7DCFFF;
+@define-color light-red #F7768E;
+@define-color light-green #9ECE6A;
+@define-color light-yellow #E0AF68;
+@define-color light-purple #BB9AF7;
+
+
+/*
+@define-color background #1e222a;
+@define-color foreground #d0d0d0;
+@define-color module-bg #282c34;
+@define-color muted-green #508572;
+@define-color muted-green-lighter #669980;
+@define-color deep-brown #46362b;
+@define-color deep-brown-lighter #5a483a;
+@define-color muted-red #e06c75;
+*/

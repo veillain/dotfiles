@@ -1,0 +1,51 @@
+{
+    "exclusive": false,
+    "layer": "top", 
+    "position": "left", 
+    "height": 767, 
+    //"width": 1031, 
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom":0,
+    "margin-left": 1,
+    "margin-right": 0,
+
+    "modules-left": [
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "group/confirm"
+    ],
+
+    "group/confirm": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/title",
+            "group/power"
+        ]
+    },
+
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/no",
+            "custom/yes"
+        ]
+    },
+    
+    "custom/title": {
+        "format": "Logout?",
+        "tooltip": false
+    },
+    "custom/no": {
+        "format": "No",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/confirm.sh"
+    },
+    "custom/yes": {
+        "format": "Yes",
+        "tooltip": false,
+        "on-click": "exit"
+    }
+}

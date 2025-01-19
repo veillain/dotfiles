@@ -1,16 +1,7 @@
 #!/bin/bash
 #environments
 options=$1
-choice=(
-    $2
-    $3
-    $4
-    $5
-    $6
-    $7
-    $8
-    $9
-)
+choice=$(echo $@ | grep -oP "(?<=$options ).*")
 config_path="$HOME/.config"
 dotman_config="$HOME/.config/dotman/config.sh"
 dotfile_path=$(cat $dotman_config | grep path | awk '{print $3}')
@@ -41,7 +32,7 @@ path (){
 }
 
 help (){
-    echo "usage:  dotman <operations> [...]
+    echo "usage:  dotman <operation> [...]
 operations:
     dotman {-h --help}                       Show this help
     dotman {-l --list}                       Show List of Configuration included in dotfiles
@@ -72,7 +63,7 @@ set (){
         else
             echo "Failed to change the path"
         fi
-    fi  
+    fi
 }
 
 sync (){
@@ -81,7 +72,7 @@ sync (){
         if [ "$check" ]; then
             cp -rf $config_path/$pkg $dotfile_path
             if [ $? -eq 0 ]; then
-                echo "Copied $pkg Config files into dotfiles($dotfile_path)." 
+                echo "Copied $pkg Config files into dotfiles($dotfile_path)."
             else
                 echo "Failed to copy $pkg into dotfiles"
             fi
@@ -96,7 +87,7 @@ sync (){
 }
 
 remove (){
-    for pkg in ${choice[@]}; do
+    for pkg in ${config_path[@]}; do
         check=$(ls $dotfile_path/$pkg)
         if [ "$check" ]; then
             whatisit="remove"
@@ -122,9 +113,9 @@ overwrite (){
     if [ "$check" ]; then
         whatisit="overwrite"
         confirmation
-        if [[ "$confirm" == yes ]]; then 
+        if [[ "$confirm" == yes ]]; then
             mv -f $config_path/$choice $dotfile_path
-            if true; then 
+            if true; then
                 ln -s $dotfile_path/$choice $config_path
                 if [ $? -eq 0 ]; then
                     echo "Overwriting ($choice) success"

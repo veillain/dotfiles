@@ -1,0 +1,56 @@
+{
+    "exclusive": false,
+    "layer": "top", 
+    "position": "left", 
+    "height": 767, 
+    //"width": 1031, 
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom":0,
+    "margin-left": 1,
+    "margin-right": 0,
+
+    "modules-left": [
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "group/power"
+    ],
+
+    "group/power": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/lock",
+            "custom/logout",
+            "custom/reboot",
+            "custom/poweroff",
+            "custom/back"
+        ]
+    },
+    "custom/lock": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    },
+    "custom/logout": {
+        "format": "󰗽 ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/confirm.sh logout"
+    },
+    "custom/reboot": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/confirm.sh reboot"
+    },
+    "custom/poweroff": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/confirm.sh poweroff"
+    },
+    "custom/back": {
+        "format": "󰌍 ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/toggle.sh"
+    }
+}

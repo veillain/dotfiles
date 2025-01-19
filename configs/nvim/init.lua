@@ -1,30 +1,67 @@
+-- keymapping Informations
+-- 'gcc' for autocomment
+-- 'gS' for auto split or join text (must in the first letter after {}/()/[])
+-- '<win>[hjkl]' for moving blocked text
+-- 'sa[w]"' for surrounding text with ""
+-- 'sd' for remove
+-- 'sr' for replace
+-- 'sh' for highlight surroundings
+-- 'g=[i]' for execute operations
+-- 'gx[iw]' for exchange word
+-- 'gr[iw]' for replace word
+-- 'gs[s|p]' for sorting line, paragraph
+-- ']b' for next buffer
+-- '[b' for prev buffer
+-- '<leader>ff' for opening find files
+-- '<leader>fg' for opening live grep
+-- '<leader>nt' for opening/closing mini.files
+-- '<leader>db' to delete current buffer
+
 -- Plugins
 vim.g.plugins = {
+    -- Plugin Manager
 	"https://github.com/BryceVandegrift/pm",
+    -- Folke
 	"https://github.com/folke/tokyonight.nvim",
 	"https://github.com/folke/flash.nvim",
-	"https://github.com/tpope/vim-surround",
-	"https://github.com/tpope/vim-commentary",
+    -- Mini.nvim
+	"https://github.com/echasnovski/mini.comment",
+    "https://github.com/echasnovski/mini.bracketed",
+    "https://github.com/echasnovski/mini.completion",
+    "https://github.com/echasnovski/mini.files",
+    "https://github.com/echasnovski/mini.indentscope",
+    "https://github.com/echasnovski/mini.move",
+    "https://github.com/echasnovski/mini.notify",
+    "https://github.com/echasnovski/mini.operators",
+    "https://github.com/echasnovski/mini.pick",
+    "https://github.com/echasnovski/mini.splitjoin",
+    "https://github.com/echasnovski/mini.statusline",
+    "https://github.com/echasnovski/mini.surround",
+    "https://github.com/echasnovski/mini.trailspace",
+    "https://github.com/echasnovski/mini.bufremove",
+    -- Other
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/nvim-neo-tree/neo-tree.nvim",
-    "https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/brenoprata10/nvim-highlight-colors",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/letieu/btw.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons",
-    "https://github.com/MunifTanjim/nui.nvim",
-    "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-    "https://github.com/ms-jpq/coq_nvim",
-    "https://github.com/ms-jpq/coq.artifacts",
-    "https://github.com/ms-jpq/coq.thirdparty",
     "https://github.com/windwp/nvim-autopairs",
-    "https://github.com/j-hui/fidget.nvim",
-    "https://github.com/echasnovski/mini.indentscope",
-    "https://github.com/echasnovski/mini.bracketed",
-    "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim",
 }
 
+-- Mini.nvim
+require('mini.comment').setup()
+require('mini.completion').setup()
+require('mini.splitjoin').setup()
+require('mini.surround').setup()
+require('mini.notify').setup()
+require('mini.pick').setup()
+require('mini.operators').setup()
+require('mini.trailspace').setup()
+require('mini.statusline').setup()
+require('mini.bufremove').setup()
+require('mini.move').setup({mappings = { left = '<D-h>', right = '<D-l>', down = '<D-j>', up = '<D-k>', line_left = '<D-h>', line_right = '<D-l>', line_down = '<D-j>', line_up = '<D-k>', },}
+)
 
 -- Plugins Setup
 require("oil").setup({ default_file_explorer = true, delete_to_trash = true, view_options = { show_hidden = true } })
@@ -33,12 +70,12 @@ require("flash").setup({})
 require("nvim-highlight-colors").setup({})
 require("btw").setup({ text = "I use Neovim in an Arch (BTW)", })
 require("nvim-autopairs").setup({})
-require("fidget").setup({})
 require("mini.indentscope").setup({})
 require("mini.bracketed").setup({})
 require("render-markdown").setup({})
 require('render-markdown.integ.coq').setup()
-require("nvim-treesitter.configs").setup({ 
+require('mini.files').setup()
+require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = { "bash", "lua", "vim", "javascript", "typescript", "python", "css", "cpp", "html", "json", "jsonc" }
@@ -52,21 +89,25 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- Sum Keymappings
-local builtin = require('telescope.builtin')
+local minifiles_toggle = function(...)
+    if not MiniFiles.close() then MiniFiles.open(...) end
+  end
+local imap_expr = function(lhs, rhs)
+    vim.keymap.set('i', lhs, rhs, { expr = true })
+  end
+imap_expr('<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+imap_expr('<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
 vim.keymap.set('n', ';', '<esc>:') -- ; as :
-vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>') -- tab to go to next buffer
-vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>') -- shift tab to go to previous buffer
+vim.keymap.set('n', '<C-Tab>', '<cmd>bnext<cr>') -- tab to go to next buffer
+vim.keymap.set('n', '<C-S-Tab>', '<cmd>bprevious<cr>') -- shift tab to go to previous buffer
 vim.keymap.set('n', '<leader>xx', '<cmd>q<cr>') -- Exit using leader + xx
 vim.keymap.set('n', '-', '<cmd>Oil<cr>') -- Oil
-vim.keymap.set('n', '<leader>ff', builtin.find_files)
-vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-vim.keymap.set('n', '<leader>fb', builtin.buffers)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags)
-vim.keymap.set('n', '<leader>fc', builtin.colorscheme)
-vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find)
+vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>')
+vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>')
 vim.keymap.set('n', 's', function() require("flash").jump() end)
 vim.keymap.set('n', 'S', function() require("flash").treesitter() end)
-vim.keymap.set('n', '<leader>nt', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<leader>nt', minifiles_toggle)
+vim.keymap.set('n', '<leader>db', '<cmd>lua MiniBufremove.unshow()<cr>')
 
 
 -- Basic Settings
@@ -94,62 +135,3 @@ vim.opt.expandtab = true
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.textwidth = 0
-
-
-require('telescope').setup {
-  pickers = {
-      find_files = { hidden = true }
-  },
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    }
-  }
-}
-require('telescope').load_extension('fzf')
-
-vim.g.coq_settings = {
-    auto_start = true,
-}
-
-local remap = vim.api.nvim_set_keymap
-local npairs = require('nvim-autopairs')
-
-npairs.setup({ map_bs = false, map_cr = false })
-
-vim.g.coq_settings = { keymap = { recommended = false } }
-
--- these mappings are coq recommended mappings unrelated to nvim-autopairs
-remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
-remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
-remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], { expr = true, noremap = true })
-remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], { expr = true, noremap = true })
-
--- skip it, if you use another global object
-_G.MUtils= {}
-
-MUtils.CR = function()
-  if vim.fn.pumvisible() ~= 0 then
-    if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
-      return npairs.esc('<c-y>')
-    else
-      return npairs.esc('<c-e>') .. npairs.autopairs_cr()
-    end
-  else
-    return npairs.autopairs_cr()
-  end
-end
-remap('i', '<cr>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
-
-MUtils.BS = function()
-  if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
-    return npairs.esc('<c-e>') .. npairs.autopairs_bs()
-  else
-    return npairs.autopairs_bs()
-  end
-end
-remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
