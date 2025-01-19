@@ -77,7 +77,7 @@ window#waybar > box {
 
 #workspaces {
     margin: 0 5 5 5;
-    background-color: @module-bg;
+    /* background-color: @module-bg; */
     border-radius: 3;
     padding: 2 0 5 0;
 }
@@ -93,14 +93,14 @@ window#waybar > box {
 #workspaces button.active {
     font-weight: bold;
     color: inherit;
-    background-color: @blue;
+    background-color: @module-bg;
 }
 #workspaces button.active:hover {
-    background-color: @blue-lighter;
+    background-color: @blue;
 }
 
 #workspaces button:hover {
-    background-color: @blue-lighter;
+    background-color: @blue;
     color: inherit;
 }
 
@@ -221,6 +221,45 @@ window#waybar > box {
 }
 
 /* ---- Bottom ---- */
+#trayer {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10 0 10 0;
+    transition: all 0.3s ease-in-out;
+}
+#trayer:hover {
+    background-color: @blue;
+}
+#tray {
+    margin: 0 5 10 5;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+#tray > widget {
+    background-color: inherit;
+    border-radius: 3;
+    transition: all 0.3s ease-in-out;
+    padding: 10 5;
+}
+#tray > widget:hover {
+    background-color: @background;
+}
+#tray > .active {
+    background-color: inherit;
+}
+
+#custom-notification {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#custom-notification:hover {
+    background-color: @blue;
+}
+
 #battery {
     background-color: @module-bg;
     border-radius: 3;
@@ -242,6 +281,9 @@ window#waybar > box {
         background-color: @background;
         color: @foreground;
     }
+}
+#battery.warning:not(.charging) {
+    color: @light-yellow;
 }
 #battery.critical:not(.charging) {
     background-color: @light-red;
