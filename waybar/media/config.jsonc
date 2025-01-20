@@ -14,7 +14,11 @@
     "modules-center": [
         "custom/progress",
     ],
-    "modules-right": [],
+    "modules-right": [
+        "custom/prev",
+        "custom/play",
+        "custom/next"
+    ],
 
     "image": {
         "path": "/tmp/mediathumbnail",
@@ -75,5 +79,22 @@
         "return-type": "json",
         "exec": "$HOME/.config/waybar/media/media.sh percentage",
         "background": "#FFFFFF"
+    },
+
+    "custom/prev": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "playerctl previous"
+    },
+    "custom/play": {
+        "format": "",
+        "format-alt": "",
+        "tooltip": false,
+        "on-click": "playerctl play-pause"
+    },
+    "custom/next": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "playerctl next"
     }
 }
