@@ -30,6 +30,10 @@ percentage (){
             echo "{\"text\": \"${progressBar}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
 
             sleep 1
+        else
+            echo "{\"text\": \"——————————————————————————————————————————————————\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+
+            sleep 1
         fi
     done
 }
@@ -44,17 +48,55 @@ image(){
 }
 
 metadata(){
-    artist=$(playerctl metadata | grep artist | grep -oP 'artist\s+\K.*')
-    title=$(playerctl metadata | grep title | grep -oP 'title\s+\K.*')
+    while true; do
+        status=$(playerctl status)
+        if [[ "$status" == Playing ]]; then
+            artist=$(playerctl metadata | grep artist | grep -oP 'artist\s+\K.*')
+            title=$(playerctl metadata | grep title | grep -oP 'title\s+\K.*')
+            text="You're Listening to..."
+
+            case $1 in
+                title)
+                    echo "{\"text\": \"${title}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+                artist)
+                    echo "{\"text\": \"${artist}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+                text)
+                    echo "{\"text\": \"${text}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+            esac
+        else
+            artist="Unknown"
+            title="Nothin'"
+            text="You're listening?"
+
+            case $1 in
+                title)
+                    echo "{\"text\": \"${title}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+                artist)
+                    echo "{\"text\": \"${artist}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+                text)
+                    echo "{\"text\": \"${text}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+                    ;;
+            esac
+        fi
+        sleep 1
+    done
 }
 
 case $1 in
     percentage) percentage ;;
     title)
-        metadata; echo "$title"; image
+        metadata title
         ;;
     artist)
-        metadata; echo "$artist"
+        metadata artist
+        ;;
+    text)
+        metadata text
         ;;
     image) image ;;
 esac

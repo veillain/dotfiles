@@ -9,7 +9,8 @@
 
     "modules-left": [
         "image",
-        "group/text"
+        "group/text",
+        "custom/empty"
     ],
     "modules-center": [
         "custom/progress",
@@ -20,12 +21,18 @@
         "custom/next"
     ],
 
+    "custom/empty": {
+        "format": "{}",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/media/media.sh image"
+    },
+
     "image": {
         "path": "/tmp/mediathumbnail",
         "size": 46,
         "signal": 4,
         "interval": 5,
-        "on-click": "gthumb /tmp/mediathumbnail"
+        "on-click": "gthumb /tmp/mediathumbnail",
     },
 
     "group/text": {
@@ -57,18 +64,20 @@
     },
 
     "custom/text": {
-        "format": "Now listening...",
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh text",
         "tooltip": false
     },
     "custom/title": {
         "format": "{}",
-        "return-type": "bash",
+        "return-type": "json",
         "exec": "$HOME/.config/waybar/media/media.sh title",
         "tooltip": false
     },
     "custom/artist": {
         "format": "{}",
-        "return-type": "bash",
+        "return-type": "json",
         "exec": "$HOME/.config/waybar/media/media.sh artist",
         "tooltip": false
     },
