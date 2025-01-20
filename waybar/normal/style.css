@@ -212,6 +212,7 @@ window#waybar > box {
 #clock {
     background-color: @module-bg;
     border-radius: 3;
+    font-weight: bold;
     margin: 5;
     padding: 10;
     transition: all 0.3s ease-in-out;
@@ -274,7 +275,7 @@ window#waybar > box {
     color: @foreground;
 }
 #battery.charging, #battery.plugged {
-    color: @foreground;
+    color: @light-green;
 }
 @keyframes blink {
     to {

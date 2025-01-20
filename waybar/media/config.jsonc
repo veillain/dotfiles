@@ -1,0 +1,79 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    // "exclusive": true,
+    // "margin-top": 5,
+    "spacing": 0,
+    "height": 50,
+    // "width": 100,
+
+    "modules-left": [
+        "image",
+        "group/text"
+    ],
+    "modules-center": [
+        "custom/progress",
+    ],
+    "modules-right": [],
+
+    "image": {
+        "path": "/tmp/mediathumbnail",
+        "size": 46,
+        "signal": 4,
+        "interval": 5,
+        "on-click": "gthumb /tmp/mediathumbnail"
+    },
+
+    "group/text": {
+        "orientation": "vertical",
+        "modules": [
+            "group/texts",
+            "group/titles",
+            "group/artists"
+        ]
+    },
+
+    "group/texts": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/text"
+        ]
+    },
+    "group/titles": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/title"
+        ]
+    },
+    "group/artists": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/artist"
+        ]
+    },
+
+    "custom/text": {
+        "format": "Now listening...",
+        "tooltip": false
+    },
+    "custom/title": {
+        "format": "{}",
+        "return-type": "bash",
+        "exec": "$HOME/.config/waybar/media/media.sh title",
+        "tooltip": false
+    },
+    "custom/artist": {
+        "format": "{}",
+        "return-type": "bash",
+        "exec": "$HOME/.config/waybar/media/media.sh artist",
+        "tooltip": false
+    },
+
+    "custom/progress": {
+        "format": "{}",
+        "max-length": 100,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh percentage",
+        "background": "#FFFFFF"
+    }
+}
