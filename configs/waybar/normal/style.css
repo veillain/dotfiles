@@ -1,6 +1,6 @@
 * {
     font-family: 'FiraCode Nerd Font';
-    font-size: 11px;
+    font-size: 12px;
 }
 
 @import "../colors.css";
@@ -13,34 +13,95 @@ window#waybar {
 }
 
 window#waybar > box {
-    border-radius: 0 3 3 0; 
+    /* border-radius: 0 3 3 0; */
     border: 0px #000000;
-    margin: 4px; 
-    background-color: @background; 
+    /* margin: 4px; */
+    padding: 5 5 5 5;
+    background-color: @background;
     /*box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1); */
 }
 
-#workspaces button {
+
+/* ---- Search ---- */
+
+#search {
+    background-color: @module-bg;
     border-radius: 3;
-    background-color: transparent;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    margin: 2 10;
-    padding: 5 5;
+    margin: 5 5 5 5;
+    transition: all 0.3s ease-in-out;
+}
+#search:hover {
+    background-color: @foreground;
+    color: @background;
 }
 
+#custom-search {
+    border-radius: 3;
+    background-color: inherit;
+    margin: 3 3 0 3;
+    padding: 9 6 9 4;
+    transition: all 0.2s ease-in-out;
+}
+#custom-terminal {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 3 3 3 3;
+    padding: 6 6 6 4;
+    transition: all 0.2s ease-in-out;
+}
+#custom-browser {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 0 3 3 3;
+    padding: 6 6 6 4;
+    transition: all 0.2s ease-in-out;
+}
+#custom-clipboard {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 0 3 3 3;
+    padding: 6 5 6 5;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-search:hover,
+#custom-terminal:hover,
+#custom-browser:hover,
+#custom-clipboard:hover {
+    background-color: @module-bg;
+    color: @foreground;
+}
+
+#workspaces {
+    margin: 0 5 5 5;
+    /* background-color: @module-bg; */
+    border-radius: 3;
+    padding: 2 0 5 0;
+}
+#workspaces button {
+    border-radius: 3;
+    background-color: inherit;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    margin: 3 3 0 3;
+    padding: 2;
+}
 #workspaces button.active {
     font-weight: bold;
     color: inherit;
-    background-color: @blue;
+    background-color: @module-bg;
 }
 #workspaces button.active:hover {
-    background-color: @blue-lighter;
+    background-color: @blue;
 }
 
 #workspaces button:hover {
+    background-color: @blue;
     color: inherit;
-    background: #282c34;
 }
 
 #workspaces button.focused {
@@ -51,31 +112,194 @@ window#waybar > box {
     background-color: @muted-red;
 }
 
-#battery,
-#backlight,
-#pulseaudio,
+
+/* ---- Options ---- */
+
+#options {
+    background-color: @module-bg;
+    margin: 0 5 5 5;
+    border-radius: 3;
+    padding: 0 0 2 0;
+    transition: all 0.4s ease-in-out;
+}
+#options:hover {
+    background-color: @module-bg;
+    color: inherit;
+}
+
+#custom-options {
+    border-radius: 3;
+    background-color: inherit;
+    padding: 9 6 9 4;
+    margin: 3 3 0 3;
+    transition: all 0.2s ease-in-out;
+}
+#custom-options:hover {
+    background-color: @blue;
+}
+
+#volume {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3 3 3 3;
+}
+#volume:hover {
+    background-color: @light-green;
+    border: 2px solid @light-green;
+}
+#custom-volume {
+    background-color: inherit;
+    color: @background;
+    padding: 5 6 5 4;
+}
+#pulseaudio {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#brightness {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3;
+}
+#brightness:hover {
+    background-color: @light-blue;
+    border: 2px solid @light-blue;
+}
+#custom-brightness {
+    background-color: inherit;
+    color: @background;
+    padding: 5 7 5 3;
+}
+#backlight {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#packages {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3;
+}
+#packages:hover {
+    background-color: @light-yellow;
+    border: 2px solid @light-yellow;
+}
+#custom-packages {
+    background-color: inherit;
+    color: @background;
+    padding: 5 6 5 4;
+}
+#custom-packagesnum {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#pulseaudio.muted {
+    color: @light-red;
+}
+
+/* ---- Center ---- */
 #clock {
-    padding: 0 10px;
-  }
+    background-color: @module-bg;
+    border-radius: 3;
+    font-weight: bold;
+    margin: 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#clock:hover {
+    background-color: @blue;
+}
+
+/* ---- Bottom ---- */
+#custom-mediabar {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10 12 10 8;
+    transition: all 0.3s ease-in-out;
+}
+#custom-mediabar:hover {
+    background-color: @blue;
+}
+
+#trayer {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10 0 10 0;
+    transition: all 0.3s ease-in-out;
+}
+#trayer:hover {
+    background-color: @blue;
+}
+#tray {
+    margin: 0 5 10 5;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+#tray > widget {
+    background-color: inherit;
+    border-radius: 3;
+    transition: all 0.3s ease-in-out;
+    padding: 10 5;
+}
+#tray > widget:hover {
+    background-color: @background;
+}
+#tray > .active {
+    background-color: inherit;
+}
+
+#custom-notification {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#custom-notification:hover {
+    background-color: @blue;
+}
 
 #battery {
-    background-color: transparent;
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
 }
-
+#battery:hover {
+    background-color: @blue;
+}
+#battery.full {
+    color: @foreground;
+}
 #battery.charging, #battery.plugged {
-    color: #a9b665;
+    color: @light-green;
 }
-
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @background;
+        color: @foreground;
     }
 }
-
+#battery.warning:not(.charging) {
+    color: @light-yellow;
+}
 #battery.critical:not(.charging) {
-    background-color: #ea6962;
-    color: #ffffff;
+    background-color: @light-red;
+    color: @background;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -87,10 +311,6 @@ label:focus {
     background-color: #000000;
 }
 
-#backlight {
-    background-color: transparent;
-}
-
 #network {
     background-color: transparent;
 }
@@ -99,50 +319,5 @@ label:focus {
     color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: transparent;
-}
 
-#pulseaudio.muted {
-    color: #f53c3c;
-}
 
-#custom-button {
-    background-color: transparent;
-    border-radius: 3;
-    font-size: 16;
-    margin: 10;
-    padding: 8 3 8 1;
-}
-#custom-button:hover {
-    background-color: @module-bg;
-}
-
-#custom-newworkspaces {
-  border-radius: 3;
-  margin: 3 10 10 10;
-  padding: 9 3;
-}
-#custom-newworkspaces:hover {
-    background-color: @module-bg;
-}
-
-#clock {
-    border-radius: 3;
-    font-size: 12;
-    margin: 10;
-    padding: 10 10 10 10;
-}
-#clock:hover {
-    background-color: @module-bg;
-}
-
-tooltip {
-  background-color: transparent;
-  border: none;
-}
-tooltip label {
-  background-color: @background;
-  padding: 10;
-  border-radius: 3;
-}

@@ -2,8 +2,8 @@
   "layer": "bottom",
   "exclusive": false,
   "position": "top",
-  "height": 768,
-  "width": 1420,
+  "height": 1000,
+  "width": 2000,
 
 
   "modules-center": [

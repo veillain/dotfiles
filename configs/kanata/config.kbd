@@ -1,9 +1,9 @@
-(defcfg 
+(defcfg
     process-unmapped-keys yes
 )
 
 (defsrc
-    caps h
+    caps h spc
     a s d f
     j k l ;
  )
@@ -15,22 +15,23 @@
 
 (defalias
     ;; ---- Others Things ----
-    caps-mod(tap-hold $tap-time $hold-time grave caps)
+    caps-mod(tap-hold $tap-time $hold-time esc lctrl)
+    spc-mod(tap-hold $tap-time $hold-time spc lshift)
     ;; ---- Left Home Row ----
-    a-mod (tap-hold $tap-time $hold-time a lmet)
-    s-mod (tap-hold $tap-time $hold-time s lalt)
+    a-mod (tap-hold $tap-time $hold-time a lalt)
+    s-mod (tap-hold $tap-time $hold-time s lmet)
     d-mod (tap-hold $tap-time $hold-time d lshift)
     f-mod (tap-hold $tap-time $hold-time f lctrl)
     ;; ---- Right Home Row ----
-    h-mod (tap-hold 500 500 h home)
+    h-mod (tap-hold 310 310 h home)
     j-mod (tap-hold $tap-time $hold-time j lctrl)
     k-mod (tap-hold $tap-time $hold-time k lshift)
-    l-mod (tap-hold 500 500 l end)
-    ;-mod (tap-hold $tap-time $hold-time ; lctrl)
+    l-mod (tap-hold 310 310 l end)
+    ;-mod (tap-hold $tap-time $hold-time ; lmet)
 )
 
 (deflayer base
-    @caps-mod @h-mod
+    @caps-mod @h-mod @spc-mod
     @a-mod @s-mod @d-mod @f-mod
     @j-mod @k-mod @l-mod @;-mod
 )

@@ -1,6 +1,6 @@
 {
     "exclusive": false,
-    "layer": "top",
+    "layer": "overlay",
     "position": "left",
     "height": 767,
     //"width": 1031,
