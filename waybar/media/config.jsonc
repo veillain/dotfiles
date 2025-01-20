@@ -87,8 +87,9 @@
         "on-click": "playerctl previous"
     },
     "custom/play": {
-        "format": "",
-        "format-alt": "",
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/button.sh",
         "tooltip": false,
         "on-click": "playerctl play-pause"
     },

@@ -21,7 +21,7 @@ window#waybar > box {
 #custom-month {
     background-color: @background;
     border-radius: 3 3 0 0;
-    border-top: 2px solid @light-blue;
+    /* border-top: 2px solid @light-blue; */
     font-weight: bold;
     padding: 20 0 0 0;
 }
@@ -40,7 +40,7 @@ window#waybar > box {
 #dates {
     background: @background;
     border-radius: 0 0 3 3;
-    border-bottom: 2px solid @light-blue;
+    /* border-bottom: 2px solid @light-blue; */
     padding: 0 10 10 10;
 }
 
