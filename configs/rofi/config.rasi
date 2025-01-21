@@ -103,7 +103,7 @@ inputbar {
     border:                      0px solid;
     border-radius:               3px;
     border-color:                @border-colour;
-    background-color:            #313448;
+    background-color:            @background-alt;
     text-color:                  @foreground-colour;
     children:                    [ "textbox-prompt-colon", "entry", "mode-switcher" ];
 }
