@@ -41,7 +41,7 @@
     "custom/search": {
         "format": "󰣆",
         "tooltip": false,
-        "on-click": "pkill -x rofi || rofi -show drun"
+        "on-click": "pkill -x rofi || rofi -no-steal-focus -show drun"
     },
 
     "custom/terminal": {
