@@ -20,7 +20,7 @@
         "exec": "$HOME/.config/waybar/calendar/exec.sh month"
     },
     "clock": {
-        "format": "Today is {:%A,(%d)}",
+        "format": "Today is {:%A}",
         "tooltip": false
     },
 
