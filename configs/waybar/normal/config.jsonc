@@ -27,7 +27,7 @@
     "group/search": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 800,
+            "transition-duration": 1000,
             "transition-left-to-right": true,
         },
         "modules": [
