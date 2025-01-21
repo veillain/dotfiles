@@ -72,15 +72,16 @@ These are the basic keybinds. Read through [Wiki](https://github.com/veillain/do
 These are some keys that i remap using `Kanata`. It's called `Home Row Mods`.
 | Keys | When tapped | When Holded |
 | - | - | - |
-| `A` | A | Control |
-| `S` | S | Shift |
-| `D` | D | Alt |
-| `F` | F | Escape |
-| `J` | J | Home |
-| `K` | K | End |
-| `L` | L | Shift |
-| `;` | ; | Control |
-| `Capslock` | ` | Capslock |
+| `A` | A | Alt |
+| `S` | S | Meta |
+| `D` | D | Shift |
+| `F` | F | Control |
+| H | H | Home |
+| `J` | J | Control |
+| `K` | K | Shift |
+| `L` | L | End |
+| `;` | ; | Meta |
+| `Capslock` | Escape | Control |
 
 ## **License**
 This project is licensed under the GNU General Public License V3.0 See the [LICENSE](LICENSE) file for details.
