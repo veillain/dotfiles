@@ -1,11 +1,3 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
 
 /*****----- Configuration -----*****/
 configuration {
@@ -23,7 +15,7 @@ configuration {
 @import                          ".config/rofi/colors.rasi"
 
 * {
-	font: "NotoSansM Nerd Font Regular 10";
+	font: "FiraCode Nerd Font Regular 10";
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);
@@ -53,13 +45,13 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
-    anchor:                      north;
+    location:                    northwest;
+    anchor:                      west;
     fullscreen:                  false;
     width:                       270px;
-    height:                      757px;
-    x-offset:                    5px;
-    y-offset:                    0px;
+    //height:                      757px;
+    x-offset:                    10px;
+    y-offset:                    10px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -159,7 +151,7 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       21;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   true;
