@@ -151,10 +151,10 @@ fi
 case $1 in
     --path|path) path ;;
     --set|set) set ;;
-    -[sS]|--sync) sync ;;
-    -[rR]|--remove) remove ;;
-    -[oO]|--overwrite) overwrite ;;
-    -[lL]|--list) list ;;
-    -[hH]|--help) help ;;
+    -[sS]|--sync|sync) sync ;;
+    -[rR]|--remove|remove) remove ;;
+    -[oO]|--overwrite|overwrite) overwrite ;;
+    -[lL]|--list|list) list ;;
+    -[hH]|--help|help) help ;;
     *) wrong_input ;;
 esac
