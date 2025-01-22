@@ -48,6 +48,7 @@ conform.setup({
 		java = { "google-java-format" },
 		-- html = { "htmlbeautifier" },
 		bash = { "beautysh" },
+		conf = { "beautysh" },
 		sh = { "beautysh" },
 		yaml = { "yamlfix" },
 		toml = { "taplo" },
@@ -64,11 +65,12 @@ vim.keymap.set({ "n", "v" }, "<leader>ft", function()
 		timeout_ms = 500,
 	})
 end, { desc = "Format file or range (in visual mode)" })
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
-})
+
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	callback = function(args)
+-- 		require("conform").format({ bufnr = args.buf })
+-- 	end,
+-- })
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --     callback = function(args)
