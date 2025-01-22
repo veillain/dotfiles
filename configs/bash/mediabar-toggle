@@ -1,0 +1,5 @@
+#!/bin/bash
+
+id=$(ps -ef | grep '[w]aybar -c' | grep media | awk '{print $2}')
+
+kill $id || waybar -c $HOME/.config/waybar/media/config.jsonc -s $HOME/.config/waybar/media/style.css &
