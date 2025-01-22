@@ -5,8 +5,8 @@
 (defsrc
     spc
     caps a
-    s d f h
-    j k l ;
+    s d f
+    h j k l
  )
 
 (defvar
@@ -19,16 +19,15 @@
     spc-mod(tap-hold $tap-time $hold-time spc lshift)
 
     ;; ---- Left Home Row ----
-    s-mod (tap-hold $tap-time $hold-time s lmet)
+    s-mod (tap-hold $tap-time $hold-time s lalt)
     d-mod (tap-hold $tap-time $hold-time d lshift)
     f-mod (tap-hold $tap-time $hold-time f lctrl)
-    h-mod (tap-hold 310 310 h home)
 
     ;; ---- Right Home Row ----
+    h-mod (tap-hold 310 310 h home)
     j-mod (tap-hold $tap-time $hold-time j lctrl)
     k-mod (tap-hold $tap-time $hold-time k lshift)
     l-mod (tap-hold 310 310 l end)
-    ;-mod (tap-hold $tap-time $hold-time ; lmet)
 
     ;; ---- Extend Layers ----
     caps-mod (tap-hold $tap-time $hold-time esc (layer-while-held number))
@@ -38,8 +37,8 @@
 (deflayer base
     @spc-mod
     @caps-mod @a-mod
-    @s-mod @d-mod @f-mod @h-mod
-    @j-mod @k-mod @l-mod @;-mod
+    @s-mod @d-mod @f-mod 
+    @h-mod @j-mod @k-mod @l-mod 
 )
 
 ;; The extend layer using caps & a
@@ -55,6 +54,9 @@
     k 8
     l 9
     ; 0
+    z `
+    x -
+    c =
 )
 
 (deflayermap (extend)
