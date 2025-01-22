@@ -44,7 +44,6 @@ vim.g.plugins = {
     "https://github.com/echasnovski/mini.tabline",
     "https://github.com/echasnovski/mini.trailspace",
     -- Nvim.cmp
-    "https://github.com/VonHeikemen/lsp-zero.nvim",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/L3MON4D3/LuaSnip",
     "https://github.com/saadparwaiz1/cmp_luasnip",
@@ -53,6 +52,11 @@ vim.g.plugins = {
     "https://github.com/hrsh7th/cmp-path",
     "https://github.com/hrsh7th/cmp-cmdline",
     "https://github.com/hrsh7th/nvim-cmp",
+    -- AutoFormat
+    "https://github.com/williamboman/mason.nvim",
+    "https://github.com/williamboman/mason-lspconfig.nvim",
+    "https://github.com/zapling/mason-conform.nvim",
+    "https://github.com/stevearc/conform.nvim",
     -- Markdown Plugin
     "https://github.com/MeanderingProgrammer/render-markdown.nvim",
     "https://github.com/toppair/peek.nvim",
