@@ -3,8 +3,9 @@
 )
 
 (defsrc
-    caps h spc
-    a s d f
+    spc
+    caps a
+    s d f h
     j k l ;
  )
 
@@ -15,23 +16,55 @@
 
 (defalias
     ;; ---- Others Things ----
-    caps-mod(tap-hold $tap-time $hold-time esc lctrl)
     spc-mod(tap-hold $tap-time $hold-time spc lshift)
+
     ;; ---- Left Home Row ----
-    a-mod (tap-hold $tap-time $hold-time a lalt)
     s-mod (tap-hold $tap-time $hold-time s lmet)
     d-mod (tap-hold $tap-time $hold-time d lshift)
     f-mod (tap-hold $tap-time $hold-time f lctrl)
-    ;; ---- Right Home Row ----
     h-mod (tap-hold 310 310 h home)
+
+    ;; ---- Right Home Row ----
     j-mod (tap-hold $tap-time $hold-time j lctrl)
     k-mod (tap-hold $tap-time $hold-time k lshift)
     l-mod (tap-hold 310 310 l end)
     ;-mod (tap-hold $tap-time $hold-time ; lmet)
+
+    ;; ---- Extend Layers ----
+    caps-mod (tap-hold $tap-time $hold-time esc (layer-while-held number))
+    a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
 )
 
 (deflayer base
-    @caps-mod @h-mod @spc-mod
-    @a-mod @s-mod @d-mod @f-mod
+    @spc-mod
+    @caps-mod @a-mod
+    @s-mod @d-mod @f-mod @h-mod
     @j-mod @k-mod @l-mod @;-mod
 )
+
+;; The extend layer using caps & a
+
+(deflayermap (number)
+    a 1
+    s 2 
+    d 3 
+    f 4
+    g 5
+    h 6
+    j 7
+    k 8
+    l 9
+    ; 0
+)
+
+(deflayermap (extend)
+    d pgdn
+    u pgup
+    h C-left 
+    j C-d
+    k C-u
+    l C-right 
+    m bspc
+)
+
+

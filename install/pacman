@@ -27,6 +27,7 @@ packages=(
         neovim
         networkmanager
         network-manager-applet
+        npm
         nwg-look
         obs-studio
         obsidian
@@ -46,6 +47,7 @@ packages=(
         ttf-fira-sans
         ttf-firacode-nerd
         ttf-font-awesome
+        unzip
         vlc
         waybar
         waybar-module-pacman-updates-git
