@@ -1,7 +1,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun";
+	modi:                       "drun, dmenu";
     show-icons:                 true;
     display-drun:               "";
     display-run:                "";
@@ -12,7 +12,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          ".config/rofi/colors.rasi"
+@import                          "colors.rasi"
 
 * {
 	font: "FiraCode Nerd Font Regular 10";

@@ -113,21 +113,21 @@
     "custom/suspend": {
         "format": "",
         "tooltip-format": "suspend",
-        "on-click": "$HOME/.config/waybar/power/confirm/toggle.sh suspend"
+        "on-click": "$HOME/.config/waybar/power/confirm.sh suspend"
     },
     "custom/reboot": {
         "format": "",
         "tooltip-format": "reboot",
-        "on-click": "$HOME/.config/waybar/power/confirm/toggle.sh reboot"
+        "on-click": "$HOME/.config/waybar/power/confirm.sh reboot"
     },
     "custom/logout": {
         "format": "",
         "tooltip-format": "logout",
-        "on-click": "$HOME/.config/waybar/power/confirm/toggle.sh logout"
+        "on-click": "$HOME/.config/waybar/power/confirm.sh logout"
     },
     "custom/poweroff": {
         "format": "",
         "tooltip-format": "poweroff",
-        "on-click": "$HOME/.config/waybar/power/confirm/toggle.sh poweroff"
+        "on-click": "$HOME/.config/waybar/power/confirm.sh poweroff"
     }
 }

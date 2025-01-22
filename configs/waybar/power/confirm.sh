@@ -1,14 +1,25 @@
 #!/bin/bash
+case $1 in
+    suspend) pilihan="suspend" ;;
+    reboot) pilihan="reboot" ;;
+    logout) pilihan="logout" ;;
+    poweroff) pilihan="poweroff" ;;
+esac
 
-choice=$1
-id=$(ps -ef | grep '[w]aybar -c' | grep confirm | awk '{print $2}')
+dothethings(){
+    case $pilihan in
+        suspend) exit 1 ;;
+        reboot) reboot ;;
+        logout) hyprctl dispatch exit ;;
+        poweroff) powroff ;;
+        *) exit 1 ;;
+    esac
+}
 
-if [ $choice = logout ]; then
-  waybar -c $HOME/.config/waybar/power/confirm/logout.jsonc -s $HOME/.config/waybar/power/confirm/style.css
-elif [ $choice = reboot ]; then
-  waybar -c $HOME/.config/waybar/power/confirm/reboot.jsonc -s $HOME/.config/waybar/power/confirm/style.css
-elif [ $choice = poweroff ]; then
-  waybar -c $HOME/.config/waybar/power/confirm/poweroff.jsonc -s $HOME/.config/waybar/power/confirm/style.css
-else
-  kill "$id"
-fi
+
+CHOICE=$(printf "Yes\nNo" | rofi -config $HOME/.config/rofi/confirm.rasi -dmenu -no-case-sensitive)
+case "$CHOICE" in
+    Yes) dothethings ;;
+    No) exit 1 ;;
+    *) exit 1 ;;
+esac
