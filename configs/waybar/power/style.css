@@ -1,6 +1,6 @@
 * {
-    font-family: 'NotoMono Nerd Font';
-    font-size: 11px;
+  font-family: "FiraCode Nerd Font";
+  font-size: 13;
 }
 
 @import "../colors.css";
@@ -13,40 +13,103 @@ window#waybar {
 }
 
 window#waybar > box {
-    border-radius: 3;
     background-color: transparent;
-  margin: 4px; 
-}
-
-
-#power {
-    background-color: alpha(@background, 0.9);
     border-radius: 3;
+    margin-left: 10;
+    margin-bottom: 10;
 }
 
-#custom-lock,
-#custom-logout,
-#custom-reboot,
-#custom-poweroff,
-#custom-back {
+.modules-right {
+    background-color: @background;
+    border-radius: 3;
+    padding: 10px;
+}
+
+#batterybox {
     background-color: @module-bg;
-    margin: 10;
     border-radius: 3;
+    padding: 5 15;
+}
+#custom-batlogo {
+    font-size: 48;
+    /* background-color: @blue; */
+    padding: 0 5 0 5;
+}
+#battext {
+    padding: 10 10 10 15px;
+    font-weight: bold;
+}
+#battery {
+    font-size: 22;
+}
+
+/* temperature box */
+#temperaturebox {
+    background: @module-bg;
+    margin: 5 0 0 0;
+    padding: 8 0 0 0;
+}
+#custom-tempkosong {
+    color: @module-bg;
+    padding: 0 30;
+}
+#custom-temptext {
+    font-weight: bold;
+}
+
+/* memory box */
+#memory {
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 10;
+}
+#disk {
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 10;
+}
+
+/* button */
+#custom-ptext {
+    padding: 8 0 5 0;
+    color: alpha(@foreground, 0.5);
 }
 
 #custom-lock {
-    padding: 10 7 10 13;
+    background-color: @module-bg;
+    margin: 5 0 0 0;
+    padding: 10 13 10 11;
+    transition: all 0.3s ease-in-out;
 }
-#custom-logout {
-    padding: 10 6 10 14;
+#custom-suspend {
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 13 10 11;
+    transition: all 0.3s ease-in-out;
 }
 #custom-reboot {
-    padding: 10 7 10 13;
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 14 10 10;
+    transition: all 0.3s ease-in-out;
+}
+#custom-logout {
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 14 10 10;
+    transition: all 0.3s ease-in-out;
 }
 #custom-poweroff {
-    padding: 10 8 10 12;
-}
-#custom-back {
-    padding: 10 8 10 12;
+    background-color: @module-bg;
+    margin: 5 0 0 5;
+    padding: 10 25 10 21;
+    transition: all 0.3s ease-in-out;
 }
 
+#custom-lock:hover,
+#custom-suspend:hover,
+#custom-reboot:hover,
+#custom-logout:hover,
+#custom-poweroff:hover {
+    background-color: @blue;
+}
