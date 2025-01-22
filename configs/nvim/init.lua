@@ -10,6 +10,9 @@
 -- 'gx[iw]' for exchange word
 -- 'gr[iw]' for replace word
 -- 'gs[s|p]' for sorting line, paragraph
+-- 'gt' next tab
+-- 'gw' next window
+-- 'gq' exit current
 -- ']b' for next buffer
 -- '[b' for prev buffer
 -- '<leader>ff' for opening find files

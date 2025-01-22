@@ -1,71 +1,8 @@
 #!/bin/bash
 
-#application
-packages=(
-    base-devel
-    brightnessctl
-    cliphist
-    discord
-    dosfstools
-    dunst
-    efibootmgr
-    eza
-    fastfetch
-    file-roller
-    foot
-    git
-    google-chrome-dev
-    greetd
-    grim
-    gst-plugin-pipewire
-    gthumb
-    gtk-engine-murrine
-    gtk-engines
-    gum
-    gvfs
-    htop
-    hypridle
-    hyprland 
-    hyprlock
-    hyprpaper
-    hyprpicker
-    libnotify
-    links
-    man-db
-    micro
-    neovim
-    networkmanager
-    noto-fonts
-    noto-fonts-emoji
-    nwg-look
-    obs-studio
-    pavucontrol
-    pcmanfm-gtk3
-    pipewire
-    pipewire-alsa
-    pipewire-jack
-    pipewire-pulse
-    qemu-user-static
-    qemu-user-static-binfmt
-    qt5ct
-    rofi-wayland
-    slurp
-    starship
-    transmission-gtk
-    ttf-font-awesome
-    ttf-noto-nerd
-    vlc
-    waybar
-    waybar-module-pacman-updates-git
-    wget
-    wireplumber
-    xdg-desktop-portal-hyprland
-    zoxide
-
-)
-
 #source
-. $HOME/hyprgruv/veil/*
+rn=$(pwd)
+. $rn/install/pacman
 
 #colors
 NORMAL="\e[0m"
@@ -184,13 +121,12 @@ function install() {
 
 function double-check() {
   echo ''
-  echo -e "${ORANGE}All the data that same as in the dotfiles will be overwrited!!!${NORMAL}"
-  answer2=$(gum choose "Yes" "No" --header="Double-check. Continue?" --limit=1 --height=0)
+  read -ep "Are you sure? All the data that same as in the dotfiles will be overwrited!!! (y/N) " answer2
   case $answer2 in 
-    Yes)
+    [yY]|[yY][eE][sS])
       install
       ;;
-    No)
+    [nN]|[nN][oO])
       exit 
       ;;
     *)
@@ -203,9 +139,9 @@ while true; do
   clear
   echo ''
   echo "################################################"
-  echo "     Hyprland Gruvbox: 0.1"
+  echo "     Arch Bliss Configuations"
   echo "     veillainwertz@gmail.com"
-  echo "     https://github.com/veillain"
+  echo "     github.com/veillain/dotfiles"
   echo "################################################"
   echo ''
   echo "Bash: "$(echo $SHELL)""
@@ -213,16 +149,14 @@ while true; do
   echo "User: "$(whoami)""
   echo ''
   echo ''
-  echo -e "${ORANGE}Attention:
-You will install Hyprland Gruvbox to your Desktop.
-All the data that exist as in the dotfiles will be overwrited!!!${NORMAL}"
-  echo ''
-  answer=$(gum choose "Yes" "No" --header=Continue? --limit=1 --height=0)
+  read -ep "Attention:
+You will install Arch Bliss Configuration to your Desktop.
+All the data that exist as in the dotfiles will be overwrited!!! (y/N) " answer
   case $answer in
-    Yes)
+    [yY]|[yY][eE][sS])
     double-check
       ;;
-    No)
+    [nN]|[nN][oO])
       break 
       ;;
     *)
