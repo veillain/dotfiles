@@ -85,7 +85,7 @@
     },
     "disk": {
         "format": "{used}",
-        "tooltip-format": "{used} / {total}\n\n{percentage_used}% Disk space used"
+        "tooltip-format": "Used: {used} / {total}\nFree: {free} / {total}\n\n{percentage_used}% Disk space used"
     },
 
     // Power button

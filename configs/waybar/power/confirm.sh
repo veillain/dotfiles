@@ -11,7 +11,7 @@ dothethings(){
         suspend) exit 1 ;;
         reboot) reboot ;;
         logout) hyprctl dispatch exit ;;
-        poweroff) powroff ;;
+        poweroff) poweroff ;;
         *) exit 1 ;;
     esac
 }
