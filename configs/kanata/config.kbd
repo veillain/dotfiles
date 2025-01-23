@@ -67,6 +67,10 @@
     k C-u
     l C-right 
     m bspc
+    z (
+    x )
+    c -
+    v =
 )
 
 
