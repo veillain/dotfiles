@@ -87,7 +87,7 @@ sync (){
 }
 
 remove (){
-    for pkg in ${config_path[@]}; do
+    for pkg in ${choice[@]}; do
         check=$(ls $dotfile_path/$pkg)
         if [ "$check" ]; then
             whatisit="remove"
