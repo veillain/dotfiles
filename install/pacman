@@ -45,8 +45,8 @@ packages=(
         syncthing
         transmission-gtk
         ttf-fira-sans
-        ttf-firacode-nerd
         ttf-font-awesome
+        ttf-nerd-fonts-symbols
         unzip
         vlc
         waybar
