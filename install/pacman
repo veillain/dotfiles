@@ -7,6 +7,7 @@ packages=(
         eza
         file-roller
         foot
+        fzf
         git
         google-chrome
         greetd
@@ -59,4 +60,5 @@ packages=(
         yay
         yazi
         zoxide
+        zsh
 )

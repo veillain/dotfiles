@@ -1,4 +1,8 @@
 -- keymapping Informations
+-- 'sa[iw]' surround around in normal mode
+-- 'sa["]' surround around in visual mode
+-- 'sr["']' replace surrounding " to ' normal n visual mode
+-- 'sd["]' delete "" surrounding
 -- 'gcc' for autocomment
 -- 'gS' for auto split or join text (must in the first letter after {}/()/[])
 -- '<win>[hjkl]' for moving blocked text
@@ -24,14 +28,15 @@
 vim.g.plugins = {
     -- Plugin Manager
     "https://github.com/BryceVandegrift/pm",
-    -- Folke
+    -- Folke & tpope
     "https://github.com/folke/tokyonight.nvim",
     "https://github.com/folke/flash.nvim",
+    "https://github.com/folke/noice.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
     -- Mini.nvim
     "https://github.com/echasnovski/mini.comment",
     "https://github.com/echasnovski/mini.bracketed",
     "https://github.com/echasnovski/mini.clue",
-    "https://github.com/echasnovski/mini.completion",
     "https://github.com/echasnovski/mini.files",
     "https://github.com/echasnovski/mini.hipatterns",
     "https://github.com/echasnovski/mini.indentscope",
@@ -65,9 +70,6 @@ vim.g.plugins = {
     -- Pomodoro Plugin
     "https://github.com/epwalsh/pomo.nvim",
     "https://github.com/rcarriga/nvim-notify",
-    -- Typing Test!
-    "https://github.com/nvzone/typr",
-    "https://github.com/nvzone/volt",
     -- Other
     "https://github.com/letieu/btw.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -87,6 +89,25 @@ require("tokyonight").setup({ transparent = true })
 require("flash").setup({})
 require("btw").setup({ text = "I use Neovim in an Arch (BTW)", })
 require("nvim-autopairs").setup({})
+require("noice").setup({
+    lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+    },
+    -- you can enable a preset for easier configuration
+    presets = {
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false,       -- add a border to hover docs and signature help
+    },
+})
+
 require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
     indent = { enable = true },
@@ -133,19 +154,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
--- vim.api.nvim_create_augroup("floaterminal", { clear = true })
--- -- vim.api.nvim_create_autocmd("BufEnter",
--- --     { command = "source $HOME/.config/nvim/plugin/floaterminal.lua", group = "floaterminal" })
--- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
---     group = "floaterminal",
---     pattern = "*",
---     callback = function()
---         vim.cmd([[  source $HOME/.config/nvim/plugin/floaterminal.lua ]])
---     end
--- })
+-- Split Vertical Terminal
+vim.keymap.set("n", "<leader>tv",
+    "<cmd>vnew<cr><cmd>set nonumber norelativenumber<cr><cmd>terminal<cr><C-w>L<cmd>normal i<cr>",
+    { desc = "Vertical Terminal" })
+vim.keymap.set("t", "<leader>tv", "<c-w>W")
+
 
 -- Floaterminal
-
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
 local state = {
