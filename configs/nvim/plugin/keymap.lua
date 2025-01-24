@@ -29,12 +29,20 @@ vim.keymap.set('n', 'f',
     function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = false }, }) end)
 vim.keymap.set('n', 't',
     function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = false }, }) end)
-vim.keymap.set('n', 'gt', '<cmd>bnext<cr>', { desc = "Move to next tab" })
-vim.keymap.set('n', 'gT', '<cmd>bprevious<cr>', { desc = "Move to prev tab" })
+
+---- Tab, Window, Buffer ----
+vim.keymap.set('n', 'gb', '<cmd>bnext<cr>', { desc = "Move to next Buffer" })
+vim.keymap.set('n', 'gB', '<cmd>bprevious<cr>', { desc = "Move to prev Buffer" })
 vim.keymap.set('n', 'gw', '<C-w>w', { desc = "Move to next Window" })
+vim.keymap.set('n', 'gW', '<C-w>W', { desc = "Move to prev Window" })
+vim.keymap.set('n', 'gt', '<cmd>tabnext<cr>', { desc = "Move to next Tab" })
+vim.keymap.set('n', 'gT', '<cmd>tabprevious<cr>', { desc = "Move to prev Tab" })
 vim.keymap.set('n', 'gv', '<cmd>vnew<cr>', { desc = "Split new vertical window" })
-vim.keymap.set('n', 'gq', '<cmd>bd!<cr>', { desc = "Quit current window" })
-vim.keymap.set({ 'n', 't' }, '<leader>tt', '<cmd>Floaterminal<cr>', { desc = "Open floating terminal" })
+vim.keymap.set('n', 'gqb', '<cmd>bd!<cr>', { desc = "Close current Buffer" })
+vim.keymap.set('n', 'gqt', '<cmd>tabclose<cr>', { desc = "Close current Tab" })
+vim.keymap.set('n', 'gnt', '<cmd>tab new<cr>', { desc = "Create new Tab" })
+
+---- Others ----
 vim.keymap.set('n', '<leader>xx', '<cmd>q<cr>', { desc = "Exit Neovim" })
 vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>', { desc = "Find Files" })
 vim.keymap.set('n', '<leader>fg', '<cmd>Pick grep_live<cr>', { desc = "Live Grep" })
