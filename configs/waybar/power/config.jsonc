@@ -75,13 +75,34 @@
     "group/memorybox": {
         "orientation": "vertical",
         "modules": [
+            "group/memorys",
+            "group/disks"
+        ]
+    },
+    "custom/memkosong": {
+        "format": "o.o",
+        "tooltip": false
+    },
+    "group/memorys": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/memkosong",
             "memory",
-            "disk"
+            "custom/memkosong"
         ]
     },
     "memory": {
         "format": "{used}Gib",
         "tooltip-format": "{used}Gib / {total}Gib\n\n{percentage}% Memory is used" 
+    },
+
+    "group/disks": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/memkosong",
+            "disk",
+            "custom/memkosong"
+        ]
     },
     "disk": {
         "format": "{used}",

@@ -1,5 +1,4 @@
 * {
-  font-family: "FiraCode Nerd Font";
   font-size: 13;
 }
 
@@ -33,10 +32,10 @@ window#waybar > box {
 #custom-batlogo {
     font-size: 48;
     /* background-color: @blue; */
-    padding: 0 5 0 5;
+    padding: 0 10;
 }
 #battext {
-    padding: 10 10 10 15px;
+    padding: 10 10 10 20px;
     font-weight: bold;
 }
 #battery {
@@ -58,15 +57,28 @@ window#waybar > box {
 }
 
 /* memory box */
-#memory {
-    background-color: @module-bg;
-    margin: 5 0 0 5;
-    padding: 10 10;
+#custom-memkosong {
+    margin: -5 0;
+    padding: 1 30;
+    color: transparent;
 }
-#disk {
+#memorys {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 10;
+}
+#memorys:hover {
+    background-color: @blue;
+    transition: all 0.3s ease-in-out;
+}
+#disks {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 0 0 5;
+}
+#disks:hover {
+    background-color: @blue;
+    transition: all 0.3s ease-in-out;
 }
 
 /* button */
@@ -77,32 +89,37 @@ window#waybar > box {
 
 #custom-lock {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 0;
     padding: 10 13 10 11;
     transition: all 0.3s ease-in-out;
 }
 #custom-suspend {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 5;
     padding: 10 13 10 11;
     transition: all 0.3s ease-in-out;
 }
 #custom-reboot {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 5;
     padding: 10 14 10 10;
     transition: all 0.3s ease-in-out;
 }
 #custom-logout {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 5;
     padding: 10 14 10 10;
     transition: all 0.3s ease-in-out;
 }
 #custom-poweroff {
     background-color: @module-bg;
+    border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 25 10 21;
+    padding: 10 26 10 22;
     transition: all 0.3s ease-in-out;
 }
 

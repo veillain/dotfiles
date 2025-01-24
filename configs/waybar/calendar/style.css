@@ -1,6 +1,5 @@
 * {
-    font-family: "FiraCode Nerd Font";
-    font-size: 13px;
+    font-size: 14px;
 }
 
 @import "../colors.css";
@@ -28,7 +27,7 @@ window#waybar > box {
 #clock {
     background-color: @background;
     color: alpha(@foreground, 0.5);
-    font-size: 9;
+    font-size: 10;
     padding: 0 5 15 5;
 }
 
@@ -48,18 +47,18 @@ window#waybar > box {
     background-color: @module-bg;
     border-radius: 3 0 0 3;
     padding: 5;
-    font-size: 11;
+    font-size: 12;
 }
 #custom-monday, #custom-tuesday, #custom-wednesday, #custom-thursday, #custom-friday {
     background-color: @module-bg;
     padding: 5;
-    font-size: 11;
+    font-size: 12;
 }
 #custom-saturday {
     background-color: @module-bg;
     border-radius: 0 3 3 0;
     padding: 5;
-    font-size: 11;
+    font-size: 12;
 }
 
 #custom-sunday.today, #custom-monday.today, #custom-tuesday.today, #custom-wednesday.today, #custom-thursday.today, #custom-friday.today, #custom-saturday.today {
@@ -76,7 +75,7 @@ window#waybar > box {
 #custom-fr1, #custom-fr2, #custom-fr3, #custom-fr4, #custom-fr5,
 #custom-sa1, #custom-sa2, #custom-sa3, #custom-sa4, #custom-sa5 {
     padding: 5;
-    font-size: 10;
+    font-size: 11;
 }
 
 #custom-su1.today, #custom-su2.today, #custom-su3.today, #custom-su4.today, #custom-su5.today,

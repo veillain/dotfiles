@@ -15,7 +15,6 @@ configuration {
 @import                          "colors.rasi"
 
 * {
-	font: "FiraCode Nerd Font Regular 10";
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);

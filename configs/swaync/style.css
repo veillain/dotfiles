@@ -13,7 +13,6 @@
 @import "../waybar/colors.css";
 
 * {
-  font-family: 'FiraCode Nerd Font';
     box-shadow: unset;
 }
 
