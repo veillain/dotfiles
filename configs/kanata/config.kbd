@@ -3,74 +3,64 @@
 )
 
 (defsrc
-    spc
-    caps a
+    spc caps 
+    a ; 
     s d f
     h j k l
  )
 
 (defvar
-    tap-time 200
-    hold-time 200
+    tap-time 300
+    hold-time 300
+    2ap-time 310
+    2old-time 310
 )
 
 (defalias
     ;; ---- Others Things ----
     spc-mod(tap-hold $tap-time $hold-time spc lshift)
+    caps-mod (tap-hold $tap-time $hold-time esc lctrl)
 
     ;; ---- Left Home Row ----
-    s-mod (tap-hold $tap-time $hold-time s lalt)
-    d-mod (tap-hold $tap-time $hold-time d lshift)
-    f-mod (tap-hold $tap-time $hold-time f lctrl)
+    s-mod (tap-hold $tap-time $hold-time s lmet)
+    d-mod (tap-hold $tap-time $hold-time d lsft)
+    f-mod (tap-hold $tap-time $hold-time f lctl)
 
     ;; ---- Right Home Row ----
-    h-mod (tap-hold 310 310 h home)
-    j-mod (tap-hold $tap-time $hold-time j lctrl)
-    k-mod (tap-hold $tap-time $hold-time k lshift)
-    l-mod (tap-hold 310 310 l end)
+    h-mod (tap-hold $2ap-time $2old-time h home)
+    j-mod (tap-hold $tap-time $hold-time j lctl)
+    k-mod (tap-hold $tap-time $hold-time k lsft)
+    l-mod (tap-hold $2ap-time $2old-time l end)
 
     ;; ---- Extend Layers ----
-    caps-mod (tap-hold $tap-time $hold-time esc (layer-while-held number))
     a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
+    ;-mod (tap-hold $tap-time $hold-time ; (layer-while-held extend))
 )
 
 (deflayer base
-    @spc-mod
-    @caps-mod @a-mod
+    @spc-mod @caps-mod 
+    @a-mod @;-mod 
     @s-mod @d-mod @f-mod 
     @h-mod @j-mod @k-mod @l-mod 
 )
 
-;; The extend layer using caps & a
-
-(deflayermap (number)
-    a 1
-    s 2 
-    d 3 
-    f 4
-    g 5
-    h 6
-    j 7
-    k 8
-    l 9
-    ; 0
-    z `
-    x -
-    c =
-)
-
+;; The extend layer using a & ;
 (deflayermap (extend)
+    ;; Navigations
+    h left 
+    j down
+    k up
+    l right 
     d pgdn
     u pgup
-    h C-left 
-    j C-d
-    k C-u
-    l C-right 
+
+    ;; Operations
+    n del
     m bspc
-    z (
-    x )
+
+    ;; Others
+    z [
+    x {
     c -
     v =
 )
-
-
