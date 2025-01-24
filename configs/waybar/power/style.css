@@ -35,7 +35,7 @@ window#waybar > box {
     padding: 0 10;
 }
 #battext {
-    padding: 10 10 10 20px;
+    padding: 10 0 10 20px;
     font-weight: bold;
 }
 #battery {
@@ -91,35 +91,35 @@ window#waybar > box {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 0 0 0;
-    padding: 10 13 10 11;
+    padding: 10 12 10 12;
     transition: all 0.3s ease-in-out;
 }
 #custom-suspend {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 13 10 11;
+    padding: 10 11 10 13;
     transition: all 0.3s ease-in-out;
 }
 #custom-reboot {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 14 10 10;
+    padding: 10 12 10 12;
     transition: all 0.3s ease-in-out;
 }
 #custom-logout {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 14 10 10;
+    padding: 10 12 10 12;
     transition: all 0.3s ease-in-out;
 }
 #custom-poweroff {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 0 0 5;
-    padding: 10 26 10 22;
+    padding: 10 18 10 16;
     transition: all 0.3s ease-in-out;
 }
 

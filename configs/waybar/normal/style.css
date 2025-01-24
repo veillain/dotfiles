@@ -38,7 +38,7 @@ window#waybar > box {
     border-radius: 3;
     background-color: inherit;
     margin: 3 3 0 3;
-    padding: 9 6 9 4;
+    padding: 9 4 9 6;
     transition: all 0.2s ease-in-out;
 }
 #custom-terminal {
@@ -46,7 +46,7 @@ window#waybar > box {
     background-color: inherit;
     color: @background;
     margin: 3 3 3 3;
-    padding: 6 6 6 4;
+    padding: 8 5 8 5;
     transition: all 0.2s ease-in-out;
 }
 #custom-browser {
@@ -54,7 +54,7 @@ window#waybar > box {
     background-color: inherit;
     color: @background;
     margin: 0 3 3 3;
-    padding: 6 6 6 4;
+    padding: 8 5 8 5;
     transition: all 0.2s ease-in-out;
 }
 #custom-clipboard {
@@ -62,7 +62,7 @@ window#waybar > box {
     background-color: inherit;
     color: @background;
     margin: 0 3 3 3;
-    padding: 6 5 6 5;
+    padding: 8 5 8 5;
     transition: all 0.2s ease-in-out;
 }
 
@@ -129,7 +129,7 @@ window#waybar > box {
 #custom-options {
     border-radius: 3;
     background-color: inherit;
-    padding: 9 6 9 4;
+    padding: 9 5 9 5;
     margin: 3 3 0 3;
     transition: all 0.2s ease-in-out;
 }
@@ -225,7 +225,7 @@ window#waybar > box {
     background-color: @module-bg;
     border-radius: 3;
     margin: 5 5 0 5;
-    padding: 10 12 10 8;
+    padding: 10 10 10 10;
     transition: all 0.3s ease-in-out;
 }
 #custom-mediabar:hover {
