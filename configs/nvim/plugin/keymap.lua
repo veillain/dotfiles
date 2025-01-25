@@ -20,7 +20,9 @@ vim.cmd([[
     cnoreabbrev qs :SudaWrite<cr>
     cnoreabbrev qf :q!<cr>
     cnoreabbrev fq :q!<cr>
+    cnoreabbrev ft :Floaterminal
     ]])
+vim.keymap.set({ 'n', 't' }, '<leader>tt', '<cmd>Floaterminal<cr>')
 vim.keymap.set('n', ';', '<esc>:')       -- ; as :
 vim.keymap.set('n', '-', '<cmd>Oil<cr>') -- Oil
 vim.keymap.set('n', 's', function() require("flash").jump() end)

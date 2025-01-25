@@ -47,6 +47,19 @@ image(){
     done
 }
 
+title(){
+    while true; do
+        status=$(playerctl status)
+        if [[ "$status" == Playing ]]; then
+            title=$(playerctl metadata | grep title | grep -oP 'title\s+\K.*')
+            echo "{\"text\": \"${title}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+        else
+            title="Nothin'"
+            echo "{\"text\": \"${title}\", \"class\": \"normal\"}" | jq --unbuffered --compact-output .
+        fi 
+    done
+}
+
 metadata(){
     while true; do
         status=$(playerctl status)
@@ -89,9 +102,7 @@ metadata(){
 
 case $1 in
     percentage) percentage ;;
-    title)
-        metadata title
-        ;;
+    title) title ;;
     artist)
         metadata artist
         ;;

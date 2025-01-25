@@ -9,6 +9,9 @@ vim.cmd([[lua <<EOF
         vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
       end,
     },
+    formatting = {
+        format = require("nvim-highlight-colors").format
+    },
     window = {
       -- completion = cmp.config.window.bordered(),
       -- documentation = cmp.config.window.bordered(),

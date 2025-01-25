@@ -3,64 +3,82 @@
 )
 
 (defsrc
-    spc caps 
-    a ; 
-    s d f
-    h j k l
+    caps
+    a s d f
+    j k l ;
  )
 
 (defvar
-    tap-time 300
-    hold-time 300
+    tap-time 225
+    hold-time 225
     2ap-time 310
     2old-time 310
 )
 
 (defalias
     ;; ---- Others Things ----
-    spc-mod(tap-hold $tap-time $hold-time spc lshift)
-    caps-mod (tap-hold $tap-time $hold-time esc lctrl)
+    caps-mod (tap-hold $tap-time $hold-time esc grv)
 
     ;; ---- Left Home Row ----
-    s-mod (tap-hold $tap-time $hold-time s lmet)
+    a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
+    s-mod (tap-hold $tap-time $hold-time s lalt)
     d-mod (tap-hold $tap-time $hold-time d lsft)
     f-mod (tap-hold $tap-time $hold-time f lctl)
 
     ;; ---- Right Home Row ----
-    h-mod (tap-hold $2ap-time $2old-time h home)
     j-mod (tap-hold $tap-time $hold-time j lctl)
     k-mod (tap-hold $tap-time $hold-time k lsft)
-    l-mod (tap-hold $2ap-time $2old-time l end)
+    l-mod (tap-hold $tap-time $hold-time l C-bspc)
+    ;-mod (tap-hold $tap-time $hold-time ; (layer-while-held extend))
 
     ;; ---- Extend Layers ----
-    a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
-    ;-mod (tap-hold $tap-time $hold-time ; (layer-while-held extend))
+    spc-mod(tap-hold $tap-time $hold-time spc lsft)
+
+    ;; ---- Mouse Things ----
+    mwu (mwheel-up 50 120)
+    mwd (mwheel-down 50 120)
+    mwl (mwheel-left 50 120)
+    mwr (mwheel-right 50 120)
 )
 
 (deflayer base
-    @spc-mod @caps-mod 
-    @a-mod @;-mod 
-    @s-mod @d-mod @f-mod 
-    @h-mod @j-mod @k-mod @l-mod 
+    @caps-mod
+    @a-mod @s-mod @d-mod @f-mod 
+    @j-mod @k-mod @l-mod @;-mod
 )
 
 ;; The extend layer using a & ;
 (deflayermap (extend)
-    ;; Navigations
-    h left 
+    ;; ---- HomeMods Layers ----
+    a lctl
+    s lalt
+    d lsft
+
+    h left
     j down
     k up
-    l right 
-    d pgdn
-    u pgup
+    l right
 
-    ;; Operations
-    n del
-    m bspc
+    ; bspc
+    ' return
+    / \
 
-    ;; Others
+    q S-1
+    w S-2
+    e S-3
+    r S-4
+    t S-5
+    y S-6
+    u S-7
+    i S-8
+    o -
+    p =
+
     z [
     x {
     c -
     v =
+
+    m bspc
+    n bspc
 )

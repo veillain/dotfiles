@@ -28,19 +28,21 @@
 vim.g.plugins = {
     -- Plugin Manager
     "https://github.com/BryceVandegrift/pm",
-    -- Folke & tpope
+    -- Colorschemes
     "https://github.com/folke/tokyonight.nvim",
+    "https://github.com/veillain/bliss.nvim",
+    -- Folke & tpope
     "https://github.com/folke/flash.nvim",
-    "https://github.com/folke/noice.nvim",
-    "https://github.com/MunifTanjim/nui.nvim",
+    "https://github.com/j-hui/fidget.nvim",
+    "https://github.com/brenoprata10/nvim-highlight-colors",
     -- Mini.nvim
     "https://github.com/echasnovski/mini.comment",
     "https://github.com/echasnovski/mini.bracketed",
     "https://github.com/echasnovski/mini.clue",
     "https://github.com/echasnovski/mini.files",
-    "https://github.com/echasnovski/mini.hipatterns",
     "https://github.com/echasnovski/mini.indentscope",
     "https://github.com/echasnovski/mini.move",
+    "https://github.com/echasnovski/mini.notify",
     "https://github.com/echasnovski/mini.operators",
     "https://github.com/echasnovski/mini.pick",
     "https://github.com/echasnovski/mini.splitjoin",
@@ -69,7 +71,7 @@ vim.g.plugins = {
     "https://github.com/nvim-lua/plenary.nvim",
     -- Pomodoro Plugin
     "https://github.com/epwalsh/pomo.nvim",
-    "https://github.com/rcarriga/nvim-notify",
+    -- "https://github.com/rcarriga/nvim-notify",
     -- Other
     "https://github.com/letieu/btw.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -80,16 +82,17 @@ vim.g.plugins = {
 }
 vim.g.post_download_hooks = {
     -- Markdown Afterinstall
-    "!cd ~/.local/share/nvim/site/pack/plugins/start/peek.nvim; deno task --quiet build:fast"
+    "!cd ~/.local/share/nvim/site/pack/plugins/start/peek.nvim; deno task --quiet build:fast",
 }
 
 -- Plugins Setup
 require("oil").setup({ default_file_explorer = true, delete_to_trash = true, view_options = { show_hidden = true } })
 require("tokyonight").setup({ transparent = true })
 require("flash").setup({})
-require("btw").setup({ text = "I use Neovim in an Arch (BTW)", })
+require("btw").setup({ text = "I use Neovim in an Arch (BTW)" })
 require("nvim-autopairs").setup({})
-require("noice").setup({
+require("nvim-highlight-colors").setup({})
+require("fidget").setup({
     lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -111,7 +114,21 @@ require("noice").setup({
 require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
     indent = { enable = true },
-    ensure_installed = { "bash", "lua", "vim", "javascript", "typescript", "python", "css", "cpp", "html", "json", "jsonc", "markdown", "markdown_inline" }
+    ensure_installed = {
+        "bash",
+        "lua",
+        "vim",
+        "javascript",
+        "typescript",
+        "python",
+        "css",
+        "cpp",
+        "html",
+        "json",
+        "jsonc",
+        "markdown",
+        "markdown_inline",
+    },
 })
 vim.cmd("colorscheme bliss")
 
@@ -119,15 +136,14 @@ vim.cmd("colorscheme bliss")
 vim.opt.title = true
 vim.opt.relativenumber = true
 vim.opt.hidden = true
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
+    vim.opt.clipboard = "unnamedplus"
 end)
 vim.opt.laststatus = 2
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
-
 
 -- Indentation Settings
 vim.opt.smarttab = true
@@ -146,20 +162,13 @@ vim.opt.autochdir = true
 vim.opt_local.conceallevel = 2
 
 -- highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking (copying) text',
-    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
     callback = function()
         vim.highlight.on_yank()
     end,
 })
-
--- Split Vertical Terminal
-vim.keymap.set("n", "<leader>tv",
-    "<cmd>vnew<cr><cmd>set nonumber norelativenumber<cr><cmd>terminal<cr><C-w>L<cmd>normal i<cr>",
-    { desc = "Vertical Terminal" })
-vim.keymap.set("t", "<leader>tv", "<c-w>W")
-
 
 -- Floaterminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
@@ -168,7 +177,7 @@ local state = {
     floating = {
         buf = -1,
         win = -1,
-    }
+    },
 }
 
 local function create_floating_window(opts)
@@ -207,17 +216,16 @@ end
 
 local toggle_terminal = function()
     if not vim.api.nvim_win_is_valid(state.floating.win) then
-        state.floating = create_floating_window { buf = state.floating.buf }
+        state.floating = create_floating_window({ buf = state.floating.buf })
         if vim.bo[state.floating.buf].buftype ~= "terminal" then
             vim.cmd.terminal()
         end
     else
         vim.api.nvim_win_hide(state.floating.win)
     end
-    vim.cmd('normal i')
+    vim.cmd("normal i")
 end
 
 -- Example usage:
 -- Create a floating window with default dimensions
 vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
-vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_terminal, { desc = "Open Floating Terminal" })
