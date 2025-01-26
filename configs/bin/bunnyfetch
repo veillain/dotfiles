@@ -12,6 +12,7 @@ done
 d=$'\e[1m'
 t=$'\e[0m'
 v=$'\e[7m'
+l=$'\033[1m'
 
 # Items
 sep=

@@ -45,7 +45,7 @@ packages=(
         swww
         syncthing
         transmission-gtk
-        ttf-fira-sans
+        ttf-carlito
         ttf-font-awesome
         ttf-nerd-fonts-symbols
         unzip

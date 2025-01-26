@@ -28,13 +28,13 @@ send_notification() {
 	notify-send \
       --hint=string:x-dunst-stack-tag:wallpaper \
       --hint=string:synchronous:wallpaper \
-      "$@" -a "Volume" $INTVAL -i "volume-$ICON" "Volume" "$TEXT" -t 2000 -r 9903
+      "$@" --urgency=low --transient -a "Volume" $INTVAL -i "volume-$ICON" "Volume" "$TEXT" -t 2000 -r 9903
 }
 mute_notification(){
     notify-send \
       --hint=string:x-dunst-stack-tag:wallpaper \
       --hint=string:synchronous:wallpaper \
-      "$@" "Volume" "Muted" -i "volume-mute" -t 2000 -r 9903
+      "$@" --urgency=low --transient "Volume" "Muted" -i "volume-mute" -t 2000 -r 9903
 }
 
 case $1 in
