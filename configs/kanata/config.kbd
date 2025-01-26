@@ -21,14 +21,14 @@
 
     ;; ---- Left Home Row ----
     a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
-    s-mod (tap-hold $tap-time $hold-time s lalt)
+    s-mod (tap-hold $tap-time $hold-time s rsft)
     d-mod (tap-hold $tap-time $hold-time d lsft)
     f-mod (tap-hold $tap-time $hold-time f lctl)
 
     ;; ---- Right Home Row ----
     j-mod (tap-hold $tap-time $hold-time j lctl)
     k-mod (tap-hold $tap-time $hold-time k lsft)
-    l-mod (tap-hold $tap-time $hold-time l C-bspc)
+    l-mod (tap-hold $tap-time $hold-time l rsft)
     ;-mod (tap-hold $tap-time $hold-time ; (layer-while-held extend))
 
     ;; ---- Extend Layers ----
@@ -50,18 +50,18 @@
 ;; The extend layer using a & ;
 (deflayermap (extend)
     ;; ---- HomeMods Layers ----
-    a lctl
+    a return
     s lalt
     d lsft
+    f lctl
 
     h left
     j down
     k up
     l right
 
-    ; bspc
-    ' return
-    / \
+    ; return
+    ' \
 
     q S-1
     w S-2
