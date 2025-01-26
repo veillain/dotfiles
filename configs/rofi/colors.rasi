@@ -1,9 +1,0 @@
-* {
-    font:           "Iosevka Rootiest v2 Regular 10";
-    background:     #1c1b1dFF;
-    background-alt: #262727FF;
-    foreground:     #f0d3c9FF;
-    selected:       #f0d3c9aa;
-    active:         #ded09dff;
-    urgent:         #de9dacff;
-}
