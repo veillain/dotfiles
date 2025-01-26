@@ -71,7 +71,6 @@ vim.g.plugins = {
     "https://github.com/nvim-lua/plenary.nvim",
     -- Pomodoro Plugin
     "https://github.com/epwalsh/pomo.nvim",
-    -- "https://github.com/rcarriga/nvim-notify",
     -- Other
     "https://github.com/letieu/btw.nvim",
     "https://github.com/nvim-treesitter/nvim-treesitter",

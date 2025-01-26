@@ -15,6 +15,7 @@ window#waybar > box {
     border-radius: 3;
     background-color: transparent;
     margin-left: 10;
+    margin-top: 10;
 }
 
 #custom-month {

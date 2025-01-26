@@ -48,8 +48,8 @@
   },
   "widgets": [
     "inhibitors",
-    "title",
     "notifications",
+    "title",
     "dnd"
   ],
   "widget-config": {
@@ -59,7 +59,7 @@
       "clear-all-button": true
     },
     "title": {
-      "text": "Notifications",
+      "text": "",
       "clear-all-button": true,
       "button-text": "Clear"
     },

@@ -9,8 +9,8 @@
   // "margin-left": -4,
   "margin-right": -5,
 
-  "modules-left": ["group/search", "group/options", "hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-left": ["group/search", "group/options", "clock"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "custom/mediabar",
     "group/trayer",

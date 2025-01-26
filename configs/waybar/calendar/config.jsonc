@@ -4,12 +4,12 @@
     "exclusive": false,
     "spacing": 0,
 
-    "modules-left": [],
-    "modules-center": [
+    "modules-left": [
         "custom/month",
         "clock",
         "group/dates"
     ],
+    "modules-center": [],
     "modules-right": [],
 
     "custom/month": {
