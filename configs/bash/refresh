@@ -33,7 +33,7 @@
 if true; then
     killall waybar
     killall swaync
-    notify-send "REFRESHED!" "What do you think?" -r 9001 -t 2000
+    notify-send --urgency=low --transient "REFRESHED!" "What do you think?" -r 9001 -t 2000
     waybar -c $HOME/.config/waybar/normal/config.jsonc -s $HOME/.config/waybar/normal/style.css |
     waybar -c $HOME/.config/waybar/border/config.jsonc -s $HOME/.config/waybar/border/style.css
 fi

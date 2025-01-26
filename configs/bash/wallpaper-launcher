@@ -37,7 +37,7 @@ monitor_res=$(( $monitor_res * $physical_monitor_size / $dotsperinch ))
 rofi_override="element-icon{size:${monitor_res}px;border-radius:0px;}"
 
 # Convert images in directory and save to cache dir
-notify-send "Fetching Wallpaper" "From ${HOME}/Wallpaper..." -t 2000
+notify-send --urgency=low --transient "Fetching Wallpaper" "From ${HOME}/Wallpaper..." -t 2000
 for imagen in "$wall_dir"/*.{jpg,jpeg,png,webp}; do
 	if [ -f "$imagen" ]; then
 		nombre_archivo=$(basename "$imagen")
