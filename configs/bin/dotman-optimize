@@ -1,0 +1,74 @@
+#!/bin/bash
+# --- Path Configuration ---
+config_path="$HOME/.config"
+dotman_config="$HOME/.config/dotman/config.sh"
+dotfile_path=`cat $dotman_config | grep path | awk '{print $3}'`
+
+# --- Text Stuff ---
+path_text="Your dotfile path is '$dotfile_path'\n"
+set_text=":: Change Dotfile path to '$choices'? [Y/n] "
+sync_text=":: Proceed to Sync '$choices'? [Y/n] "
+remove_text=":: Proceed to Remove '$choices'? [Y/n] "
+overwrite_text=":: Proceed to Overwrite '$choices'? [Y/n] "
+list_text=":: These are files inside the dotfiles: "
+help_text="usage:  dotman <operation> [...]
+operations:
+    dotman {-h --help}                      Show this help
+    dotman {-l --list}                      Show List of Configuration included in dotfiles
+    dotman {--path}                         Check your dotfiles path
+    dotman {--set-path}     [path/to/dots]  Set your dotfiles path
+    dotman {-S --sync}      [package(s)]    Copy your config into dotfiles
+    dotman {-R --remove}    [package(s)]    Remove your config from dotfiles
+    dotman {-O --overwrite} [package(s)]    Copy and Overwrite the original one with symlinks from dotfiles
+
+use 'dotman {-h --help}' to show this.
+"
+
+# --- Variables ----
+options=$1
+choice=$(echo $@ | grep -oP "(?<=$options ).*")
+for choices in ${choice[@]};do if [[ "$choices" == *--noconfirm* ]]; then noconfirm=true; fi; done # noconfirm check
+
+# --- It Starts here ---
+confirm (){
+if [[ "$noconfirm" != true ]]; then
+    case $WHATIS in
+        path) echo -ne "$path_text" ;;
+        set-path) echo -n "$set_text" ;;
+        sync) echo -n "$sync_text" ;;
+        remove) echo -n "$remove_text" ;;
+        overwrite) echo -n "$overwrite_text" ;;
+        list) echo -n "$list_text" ;;
+        help) echo -n "$help_text" ;;
+        *) echo -n "Are you sure [Y/n] " ;;
+    esac; if [[ "$WHATIS" != "help" ]] && [[ "$WHATIS" != "list" ]] && [[ "$WHATIS" != "path" ]]; then
+    read answer; case $answer in
+        [yY]) CONFIRM=true ;;
+        [nN]) CONFIRM=false ;;
+        *) CONFIRM="yes" ;;
+    esac; fi; if [ "$CONFIRM" = true ]; then proceed; fi
+else
+    proceed
+fi
+}
+
+proceed (){
+    case $WHATIS in
+        set-path)
+            if [ -z "$choice" ]; then echo "usage: dotman --set-path [/path/to/dotfiles]"; elif [ "$choice" = . ]; then rn=$(pwd); echo "path = $rn" > $dotman_config
+            else echo "path = $choice" > $dotman_config; fi
+            ;;
+    esac
+}
+
+# --- User Interface ---
+case $options in
+    --path) WHATIS="path"; confirm ;;
+    --set-path) WHATIS="set-path"; confirm ;;
+    -[sS]|--sync) WHATIS="sync"; confirm ;;
+    -[rR]|--remove) WHATIS="remove"; confirm ;;
+    -[oO]|--overwrite) WHATIS="overwrite"; confirm ;;
+    -[lL]|--list) WHATIS="list"; confirm ;;
+    -[hH]|--help) WHATIS="help"; confirm ;;
+    *) echo "error: no option specified (use 'dotman -h' for help)"
+esac

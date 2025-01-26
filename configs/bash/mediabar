@@ -1,0 +1,27 @@
+#!/bin/bash
+
+  tempat="/tmp/mediabar-status"
+  printf "" > $tempat
+  while true; do
+		running="$(cat $tempat)"
+		id=$(ps -ef | grep '[w]aybar -c' | grep media | awk '{print $2}')
+		status="$(playerctl status)"
+
+
+		if [ "$status" = Playing ]; then
+			if [ ! "$running" = 1 ]; then
+				kill $id
+                printf 1 > $tempat
+                waybar -c $HOME/.config/waybar/media/config.jsonc -s $HOME/.config/waybar/media/style.css &
+		    fi
+		fi
+
+		if [ ! "$status" = Playing ]; then
+			if [ ! "$running" = 0 ]; then
+                printf 0 > $tempat
+				kill $id
+			fi
+		fi
+	done
+
+

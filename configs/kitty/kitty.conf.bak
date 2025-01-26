@@ -1,0 +1,16 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+include bliss.conf
+
+font_family         Iosevka Rootiest v2
+bold_font           auto
+italic_font         auto
+bold_italic_font    auto
+
+font_size               11
+cursor_shape            block
+cursor_shape_unfocused  hollow
+cursor_trail            1
+
+window_padding_width    15
+placement_strategy      center

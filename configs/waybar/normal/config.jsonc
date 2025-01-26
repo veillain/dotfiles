@@ -1,0 +1,349 @@
+{
+  "layer": "top",
+  "position": "left",
+  // "height": 767,
+  //"width": 1031,
+  "spacing": 0,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  // "margin-left": -4,
+  "margin-right": -5,
+
+  "modules-left": ["group/search", "group/options", "clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/mediabar",
+    "group/trayer",
+    "custom/notification",
+    "battery",
+  ],
+
+  "group/search": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 1000,
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/search",
+      "custom/terminal",
+      "custom/browser",
+      "custom/clipboard",
+    ],
+  },
+
+  "custom/search": {
+    "format": "󰣆",
+    "tooltip": false,
+    "on-click": "pkill -x rofi || rofi -no-steal-focus -show drun",
+  },
+
+  "custom/terminal": {
+    "format": "",
+    "tooltip-format": "Terminal",
+    "on-click": "foot",
+  },
+
+  "custom/clipboard": {
+    "format": "󰅌",
+    "tooltip-format": "Clipboard",
+    "on-click": "$HOME/.config/bash/clipboard",
+  },
+
+  "custom/browser": {
+    "format": "󰊯",
+    "tooltip-format": "Browser",
+    "on-click": "google-chrome-canary",
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "壱",
+      "2": "弐",
+      "3": "参",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "拾",
+    },
+  },
+
+  "group/options": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 1000,
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/options",
+      "group/volume",
+      "group/brightness",
+      "group/packages",
+    ],
+  },
+
+  "custom/options": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "$HOME/.config/waybar/home/toggle.sh",
+  },
+
+  "group/volume": {
+    "orientation": "inherit",
+    "modules": ["custom/volume", "pulseaudio"],
+    "on-scroll-up": "$HOME/.config/bash/volume --up",
+    "on-scroll-down": "$HOME/.config/bash/volume --down",
+  },
+
+  "group/brightness": {
+    "orientation": "inherit",
+    "modules": ["custom/brightness", "backlight"],
+    "on-scroll-up": "$HOME/.config/bash/brightness --up",
+    "on-scroll-down": "$HOME/.config/bash/brightness --down",
+  },
+
+  "group/packages": {
+    "orientation": "inherit",
+    "modules": ["custom/packages", "custom/packagesnum"],
+  },
+
+  "custom/brightness": {
+    "format": "󰃞",
+    "tooltip": false,
+  },
+
+  "custom/volume": {
+    "format": "",
+    "tooltip": false,
+  },
+
+  "custom/packages": {
+    "format": "{icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱧘",
+      "updated": "󰏖",
+    },
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "on-click": "foot sudo pacman -Syu",
+  },
+
+  "custom/packagesnum": {
+    "format": "{}",
+    "format-updated": "{icon}",
+    "format-icons": {
+      "has-updates": "{}",
+      "updated": "",
+    },
+    "return-type": "json",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{volume}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+  },
+
+  "backlight": {
+    "scroll-step": 5,
+    "format": "{percent}",
+    "tooltip": false,
+    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+  },
+
+  "custom/newworkspaces": {
+    "format": "+",
+    "tooltip-format": "Create New Workspace",
+    "on-click": "hyprctl dispatch workspace +1",
+  },
+
+  // ---- Center ----
+  "clock": {
+    // "timezone": "America/New_York",
+    //"interval": 1,
+    //"format": "  {:%b %d at %H:%M %Z}",
+    "format": "{:%H\n━━\n%M}",
+    "tooltip": false,
+    "tooltip-format": "<small>\n{calendar}</small>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      //"weeks-pos"     : "left",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+    "on-click": "$HOME/.config/waybar/calendar/exec.sh",
+  },
+
+  // ---- Bottom ----
+  "custom/mediabar": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "$HOME/.config/bash/mediabar-toggle",
+    "on-click-right": "playerctl play-pause",
+  },
+
+  "group/trayer": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": ["custom/tray", "tray"],
+  },
+  "custom/tray": {
+    "format": "󰁢",
+    "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 3,
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󱏧",
+      "inhibited-none": "󱏨",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon}",
+    "format-full": "{icon}",
+    "format-charging": "",
+    "format-plugged": "  {capacity}%",
+    // "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "on-click": "bash $HOME/.config/waybar/power/toggle.sh"
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " ",
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " ",
+    },
+    "repeat-icons": {
+      "on": " ",
+    },
+    "single-icons": {
+      "on": "1 ",
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": "",
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+  },
+  "memory": {
+    "format": "{}% ",
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""],
+  },
+
+  "battery#bat2": {
+    "bat": "BAT2",
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "network": {
+    "format-wifi": " Ntw : {signalStrength}% ",
+    "tooltip-format": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    // "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+}

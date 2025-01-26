@@ -1,0 +1,9 @@
+#!/bin/bash
+
+list1=$(ps -ef | grep tty1 | awk '{print $2}')
+list2=$(ps -ef | grep pts | awk '{print $2}')
+
+for process in $list1 $list2; do
+	kill $process
+	reboot
+done

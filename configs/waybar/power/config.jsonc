@@ -1,0 +1,154 @@
+{
+  "layer": "top",
+  "exclusive": false,
+  "position": "left",
+  "spacing": 0,
+
+  "modules-left": [],
+  "modules-center": [],
+  "modules-right": [
+        "group/batterybox",
+        "group/mid",
+        "custom/ptext",
+        "group/pbutton"
+    ],
+
+    // Battery Widget
+  "group/batterybox": {
+    "orientation": "horizontal",
+    "modules": [ "custom/batlogo", "group/battext" ]
+  },
+
+  "custom/batlogo": {
+    "format": "󰁹",
+    "tooltip": false
+  },
+  "group/battext": {
+    "orientation": "vertical",
+    "modules": [
+        "custom/battext", 
+        "battery"
+    ]
+  },
+    "custom/battext": {
+        "format": "BATTERY",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}%",
+        "tooltip": false
+    },
+
+    //Group tengah
+    "group/mid": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/temperaturebox",
+            "group/memorybox"
+        ]
+    },
+
+    // Temperature Widget
+    "custom/tempkosong": {
+        "format": "o.o",
+        "tooltip": false
+    },
+    "group/temperaturebox": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/tempkosong",
+            "custom/temptext",
+            "temperature",
+            "custom/tempkosong"
+        ]
+    },
+    "custom/temptext": {
+        "format": "TEMP",
+        "tooltip": false
+    },
+    "temperature": {
+        "format": "{temperatureC}°C",
+        "tooltip": false
+    },
+
+    // Memory Widget
+    "group/memorybox": {
+        "orientation": "vertical",
+        "modules": [
+            "group/memorys",
+            "group/disks"
+        ]
+    },
+    "custom/memkosong": {
+        "format": "o.o",
+        "tooltip": false
+    },
+    "group/memorys": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/memkosong",
+            "memory",
+            "custom/memkosong"
+        ]
+    },
+    "memory": {
+        "format": "{used}Gib",
+        "tooltip-format": "{used}Gib / {total}Gib\n\n{percentage}% Memory is used" 
+    },
+
+    "group/disks": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/memkosong",
+            "disk",
+            "custom/memkosong"
+        ]
+    },
+    "disk": {
+        "format": "{used}",
+        "tooltip-format": "Used: {used} / {total}\nFree: {free} / {total}\n\n{percentage_used}% Disk space used"
+    },
+
+    // Power button
+    "custom/ptext": {
+        "format": "———— Power Menu ————",
+        "tooltip": false
+    },
+
+    "group/pbutton": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/lock",
+            // "custom/suspend",
+            "custom/reboot",
+            "custom/logout",
+            "custom/poweroff"
+        ]
+    },
+
+    "custom/lock": {
+        "format": "",
+        "tooltip-format": "lockscreen",
+        "on-click": "hyprlock"
+    },
+    "custom/suspend": {
+        "format": "",
+        "tooltip-format": "suspend",
+        "on-click": "$HOME/.config/waybar/power/confirm.sh suspend"
+    },
+    "custom/reboot": {
+        "format": "",
+        "tooltip-format": "reboot",
+        "on-click": "$HOME/.config/waybar/power/confirm.sh reboot"
+    },
+    "custom/logout": {
+        "format": "",
+        "tooltip-format": "logout",
+        "on-click": "$HOME/.config/waybar/power/confirm.sh logout"
+    },
+    "custom/poweroff": {
+        "format": "",
+        "tooltip-format": "poweroff",
+        "on-click": "$HOME/.config/waybar/power/confirm.sh poweroff"
+    }
+}

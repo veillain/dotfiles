@@ -1,0 +1,6 @@
+#!/bin/sh
+STFILE=~/.cache/battery # File with the status
+CDATE=$(date +%F) # Current date
+BCAPAT=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "capacity:" | awk '{print $2}') # Current battery percentage
+grep -qs "$CDATE" "$STFILE" || echo "$CDATE" - "$BCAPAT" >> "$STFILE"
+echo "$BCAPAT"

@@ -1,0 +1,251 @@
+{
+    "exclusive": false,
+    "layer": "overlay",
+    "position": "left",
+    "height": 767,
+    //"width": 1031,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom":0,
+    "margin-left": 1,
+    "margin-right": 0,
+
+    "modules-left": [
+        "custom/searchbar",
+        "group/top",
+        "group/top2"
+    ],
+    "modules-center": [
+        "custom/notification"
+    ],
+    "modules-right": [
+        "group/bot"
+    ],
+
+
+    "custom/searchbar": {
+        "format": " Search",
+        "tooltip": false,
+        "on-click": "pkill -x rofi || rofi -show drun"
+    },
+
+    "group/top": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/greet",
+            "custom/updates"
+        ]
+    },
+
+    "group/greet": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/greeting",
+            "custom/name"
+        ]
+    },
+
+    "custom/greeting": {
+        "format": "{}",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/home/setup.sh greeting"
+    },
+    "custom/name": {
+        "format": "{}",
+        "tooltip": false,
+        "exec": "echo $(whoami)!"
+    },
+
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": " ",
+            "updated": " "
+        },
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+    },
+
+    "group/top2": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "backlight",
+            "pulseaudio"
+        ]
+    },
+
+    "custom/notification": {
+        "exec": "cat '/tmp/notifications'",
+        "interval": 1,
+	    "return-type": "json",
+	    "max-length": 50
+    },
+
+    "group/bot": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+            "custom/power"
+        ]
+    },
+
+//    "group/power": {
+//        "orientation": "horizontal",
+//        "drawer": {
+//            "transition-duration": 500,
+//            "children-class": "childs",
+//            "transition-left-to-right": false,
+//            "transition-top-to-bottom": false
+//        },
+//        "modules": [
+//            "custom/lock",
+//            "custom/poweroff",
+//            "custom/reboot",
+//            "custom/logout"
+//        ]
+//    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/power/toggle.sh"
+    },
+
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        //"interval": 1,
+        "format": "  {:%b %d at %H:%M %Z}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+		"scroll-step": 5,
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+		"cursor": 42
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon} full",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon}  {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+    "network": {
+        "format-wifi": " Ntw : {signalStrength}% ",
+        "tooltip-format": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        // "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+		"cursor": 42
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+
+    //"custom/power": {
+    //    "format" : "⏻ ",
+		//"tooltip": false,
+		//"menu": "on-click",
+		//"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		//"menu-actions": {
+		//	"shutdown": "shutdown",
+		//	"reboot": "reboot",
+		//	"suspend": "systemctl suspend",
+		//	"hibernate": "systemctl hibernate"
+		//}
+    //}
+}

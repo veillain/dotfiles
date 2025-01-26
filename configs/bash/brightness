@@ -1,0 +1,24 @@
+#!/bin/sh
+
+send_notification() {
+	BRIGHTNESS=$(brightnessctl i | grep -oP '\(\K[^%\)]+')
+
+    INTVAL="-h int:value:"$BRIGHTNESS""
+    TEXT="Currently at ${BRIGHTNESS}%"
+
+	notify-send \
+      --hint=string:x-dunst-stack-tag:wallpaper \
+      --hint=string:synchronous:wallpaper \
+      "$@" --urgency=low --transient -a "Backlight" $INTVAL -i "brightness" "Brightness" "$TEXT" -t 2000 -r 9904
+}
+
+case $1 in
+	--up)
+		brightnessctl set 5%+
+		send_notification
+		;;
+	--down)
+		brightnessctl set 5%-
+		send_notification
+		;;
+esac

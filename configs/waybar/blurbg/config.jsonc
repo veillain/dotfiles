@@ -1,0 +1,17 @@
+{
+  "layer": "bottom",
+  "exclusive": false,
+  "position": "top",
+  "height": 1000,
+  "width": 2000,
+
+
+  "modules-center": [
+    "custom/empty"
+  ],
+
+  "custom/empty": {
+    "format": "",
+    "tooltip": false
+  }
+}

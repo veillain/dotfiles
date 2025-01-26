@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    // "exclusive": true,
+    // "margin-top": 5,
+    "spacing": 0,
+    "height": 50,
+    // "width": 100,
+
+    "modules-left": [
+        "image",
+        "group/text",
+        "custom/empty"
+    ],
+    "modules-center": [
+        "custom/progress",
+    ],
+    "modules-right": [
+        "custom/prev",
+        "custom/play",
+        "custom/next"
+    ],
+
+    "custom/empty": {
+        "format": "{}",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/media/media.sh image"
+    },
+
+    "image": {
+        "path": "/tmp/mediathumbnail",
+        "size": 46,
+        "signal": 4,
+        "interval": 5,
+        "on-click": "gthumb /tmp/mediathumbnail",
+    },
+
+    "group/text": {
+        "orientation": "vertical",
+        "modules": [
+            "group/texts",
+            "group/titles",
+            "group/artists"
+        ]
+    },
+
+    "group/texts": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/text"
+        ]
+    },
+    "group/titles": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/title"
+        ]
+    },
+    "group/artists": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/artist"
+        ]
+    },
+
+    "custom/text": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh text",
+        "tooltip": false
+    },
+    "custom/title": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh title",
+        "tooltip": false
+    },
+    "custom/artist": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh artist",
+        "tooltip": false
+    },
+
+    "custom/progress": {
+        "format": "{}",
+        "max-length": 100,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/media.sh percentage",
+        "background": "#FFFFFF"
+    },
+
+    "custom/prev": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "playerctl previous"
+    },
+    "custom/play": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/media/button.sh",
+        "tooltip": false,
+        "on-click": "playerctl play-pause"
+    },
+    "custom/next": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "playerctl next"
+    }
+}

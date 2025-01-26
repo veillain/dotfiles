@@ -1,0 +1,9 @@
+* {
+    font:           "CommitMono Nerd Font Regular 10";
+    background:     #24283Bff;
+    background-alt: #3B4261FF;
+    foreground:     #C0CAF5FF;
+    selected:       #3B4261aa;
+    active:         #d0a08dff;
+    urgent:         #d0809aff;
+}
