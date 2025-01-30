@@ -211,7 +211,7 @@ window#waybar > box {
 #clock {
     background-color: @module-bg;
     border-radius: 3;
-    font-size: 14;
+    font-size: 12;
     font-weight: bold;
     margin: 0 5 0 5;
     padding: 10;

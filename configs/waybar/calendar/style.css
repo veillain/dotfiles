@@ -90,3 +90,7 @@ window#waybar > box {
     border-radius: 3;
     font-weight: bold;
 }
+
+#custom-su1.last-month, #custom-mo1.last-month, #custom-tu1.last-month, #custom-we1.last-month, #custom-th1.last-month, #custom-fr1.last-month, #custom-sa1.last-month {
+    color: transparent;
+}

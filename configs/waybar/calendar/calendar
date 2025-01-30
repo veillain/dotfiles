@@ -30,7 +30,8 @@ hari_sebelumnya=$((jumlah_hari_sebelumnya - spasi + 1))
 # Menampilkan baris pertama dengan tanggal bulan sebelumnya yang mengisi kolom kosong
 for ((i=1; i<=spasi; i++)); do
   if [ $hari_sebelumnya -le $jumlah_hari_sebelumnya ]; then
-    echo -n " $hari_sebelumnya "
+#   echo -n " $(hari_sebelumnya) "
+    echo -n " 00 "
     ((hari_sebelumnya++))
   else
     echo -n "   "

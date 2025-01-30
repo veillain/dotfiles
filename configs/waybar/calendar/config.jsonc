@@ -198,7 +198,7 @@
 "group/wednesday": {
     "orientation": "vertical",
     "modules": [
-            "custom/wednesday",
+        "custom/wednesday",
         "custom/we1",
         "custom/we2",
         "custom/we3",

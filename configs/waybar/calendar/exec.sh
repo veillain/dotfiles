@@ -1,10 +1,13 @@
 #!/bin/bash
-today=$(date +%d)
+disday=$(date +%d)
+today=$(if cal=${disday}; then echo "$disday"; else echo ""; fi)
+dismonth=$(date +%m)
 
 case $1 in
     month )
-        bulanini=$(date +%B,\ %Y)
-        echo $bulanini
+        boolan=$(date +%B)
+        tahoon=$(date +%Y)
+        echo -e "$boolan ($tahoon)"
         ;;
     #Sunday
     sunday ) tgl=$($HOME/.config/waybar/calendar/calendar | awk '{print $1}' | grep $today); TEXT="Su" ;;
@@ -76,30 +79,42 @@ fi
 if [[ "$1" != "month" ]]; then
     if [[ "$tgl" != "$today" ]]; then
         case $tgl in
-            [0-9])
+            [1-9])
                 while true; do
                     echo "{\"text\": \" ${tgl}\", \"class\": \"not-today\"}" | jq --unbuffered --compact-output .
                     sleep 5
                 done
                 ;;
-            [0-9][0-9])
+            [1-9][0-9])
                 while true; do
                     echo "{\"text\": \"${tgl}\", \"class\": \"not-today\"}" | jq --unbuffered --compact-output .
+                    sleep 5
+                done
+                ;;
+            *)
+                while true; do
+                    echo "{\"text\": \"${tgl}\", \"class\": \"last-month\"}" | jq --unbuffered --compact-output .
                     sleep 5
                 done
                 ;;
         esac
     else
         case $tgl in
-            [0-9])
+            [1-9])
                 while true; do
                     echo "{\"text\": \" ${tgl}\", \"class\": \"today\"}" | jq --unbuffered --compact-output .
                     sleep 5
                 done
                 ;;
-            [0-9][0-9])
+            [1-9][0-9])
                 while true; do
                     echo "{\"text\": \"${tgl}\", \"class\": \"today\"}" | jq --unbuffered --compact-output .
+                    sleep 5
+                done
+                ;;
+            *)
+                while true; do
+                    echo "{\"text\": \"${tgl}\", \"class\": \"last-month\"}" | jq --unbuffered --compact-output .
                     sleep 5
                 done
                 ;;

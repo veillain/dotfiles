@@ -9,6 +9,8 @@
  )
 
 (defvar
+    quicktap 200
+    quickhold 200
     tap-time 225
     hold-time 225
     2ap-time 310
@@ -20,7 +22,7 @@
     caps-mod (tap-hold $tap-time $hold-time esc grv)
 
     ;; ---- Left Home Row ----
-    a-mod (tap-hold $tap-time $hold-time a (layer-while-held extend))
+    a-mod (tap-hold $quicktap $quickhold a (layer-while-held extend))
     s-mod (tap-hold $tap-time $hold-time s rsft)
     d-mod (tap-hold $tap-time $hold-time d lsft)
     f-mod (tap-hold $tap-time $hold-time f lctl)
@@ -43,7 +45,7 @@
 
 (deflayer base
     @caps-mod
-    @a-mod @s-mod @d-mod @f-mod 
+    @a-mod @s-mod @d-mod @f-mod
     @j-mod @k-mod @l-mod @;-mod
 )
 
@@ -79,6 +81,8 @@
     c -
     v =
 
-    m bspc
     n bspc
+    m bspc
+    , home
+    . end
 )

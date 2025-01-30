@@ -52,7 +52,7 @@ cat << EOF
     / ) _    $d$f2$sh  $t$shell
    ( / (\)   $d$f4$pkg  $t$pkgs
    ( $d. .$t)    $d$f5$r  $t$resolution
-   c($f1"$t)($f1"$t)   $d$f8$cp  $t$cpusage
+   c($f1"$t)($f1"$t)   $d$f7$cp  $t$cpusage
 
 
 EOF

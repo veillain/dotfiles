@@ -1,0 +1,115 @@
+# Environments
+export PATH=$HOME/bin:$HOME/.config/bin:/usr/local/bin:$PATH
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="google-chrome-stable"
+export VISUAL="${EDITOR}"
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+bunnyfetch
+
+# Zinit
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+#Plugin list
+. $HOME/.config/zsh/.p10k.zsh
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::command-not-found
+
+autoload -U compinit && compinit
+zinit cdreplay -q
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Bindings
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# History
+HISTSIZE=5000
+HISTFILE=$HOME/.config/zsh/.zshistory
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+ZVM_VI_SURROUND_BINDKEY=s-prefix
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+# Aliases
+alias pacman='yay'
+alias vi='nvim'
+alias neovim='nvim'
+alias n='nvim'
+alias ls='eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions -la'
+alias cd='z'
+alias grep='grep --color=auto'
+alias clean='reset'
+alias ff='clear; bunnyfetch'
+alias bf='clear; bunnyfetch'
+alias df='df -h'
+alias free='free -h'
+alias boottime='systemd-analyze'
+alias shark='display3d $HOME/3d/shark/blahaj.obj'
+
+alias init.lua='nvim $HOME/.config/nvim/init.lua'
+
+# Functions
+gitups(){
+    previouscommitmsg=$(git log -1 | head -n 5 | tail -n 1 | sed 's/^    //')
+    answer=$1
+    git add $answer &&
+    echo ""
+    echo "Previous Commit: $previouscommitmsg"
+    echo -n "commit message: "
+    read message
+    git commit -m "$message" &&
+    echo -n "Branch to push: "
+    read branch
+    git push -u origin "$branch"
+}
+alias gitup=gitups
+
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+alias yazi=y
+
+# Fzf
+eval "$(fzf --zsh)"

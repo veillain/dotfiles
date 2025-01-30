@@ -31,26 +31,15 @@ vim.g.plugins = {
     -- Colorschemes
     "https://github.com/folke/tokyonight.nvim",
     "https://github.com/veillain/bliss.nvim",
-    "https://github.com/philosofonusus/morta.nvim",
+    "https://github.com/sonjapeterson/1989.vim",
+    "https://github.com/neanias/everforest-nvim",
+    "https://github.com/sainnhe/gruvbox-material",
+    "https://github.com/catppuccin/nvim",
     -- Folke & tpope
     "https://github.com/folke/flash.nvim",
-    "https://github.com/j-hui/fidget.nvim",
     "https://github.com/brenoprata10/nvim-highlight-colors",
-    -- Mini.nvim
-    "https://github.com/echasnovski/mini.comment",
-    "https://github.com/echasnovski/mini.bracketed",
-    "https://github.com/echasnovski/mini.clue",
-    "https://github.com/echasnovski/mini.files",
-    "https://github.com/echasnovski/mini.indentscope",
-    "https://github.com/echasnovski/mini.move",
-    "https://github.com/echasnovski/mini.notify",
-    "https://github.com/echasnovski/mini.operators",
-    "https://github.com/echasnovski/mini.pick",
-    "https://github.com/echasnovski/mini.splitjoin",
-    "https://github.com/echasnovski/mini.statusline",
-    "https://github.com/echasnovski/mini.surround",
-    "https://github.com/echasnovski/mini.tabline",
-    "https://github.com/echasnovski/mini.trailspace",
+    -- Mini and Sum others
+    "https://github.com/echasnovski/mini.nvim",
     -- Nvim.cmp
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/L3MON4D3/LuaSnip",
@@ -86,31 +75,11 @@ vim.g.post_download_hooks = {
 }
 
 -- Plugins Setup
-require("oil").setup({ default_file_explorer = true, delete_to_trash = true, view_options = { show_hidden = true } })
-require("tokyonight").setup({ transparent = true })
+-- require("tokyonight").setup({ transparent = true })
 require("flash").setup({})
 require("btw").setup({ text = "I use Neovim in an Arch (BTW)" })
 require("nvim-autopairs").setup({})
 require("nvim-highlight-colors").setup({})
-require("fidget").setup({
-    lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-    },
-    -- you can enable a preset for easier configuration
-    presets = {
-        bottom_search = true,         -- use a classic bottom cmdline for search
-        command_palette = true,       -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false,       -- add a border to hover docs and signature help
-    },
-})
-
 require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
     indent = { enable = true },
@@ -130,7 +99,21 @@ require("nvim-treesitter.configs").setup({
         "markdown_inline",
     },
 })
-vim.cmd("colorscheme tokyonight")
+
+require("everforest").setup({
+    background = "medium",
+})
+-- Transparent Backgrounds --
+vim.cmd([[
+augroup TransparentBackground
+autocmd!
+autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
+autocmd ColorScheme * highlight NonText ctermbg=none guibg=none
+augroup END
+]])
+
+vim.cmd("colorscheme everforest")
+
 
 -- Basic Settings
 vim.opt.title = true
