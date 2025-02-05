@@ -1,0 +1,73 @@
+* {
+  font-size: 11px;
+}
+
+@import "../colors.css";
+
+window#waybar {
+  background-color: transparent;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+window#waybar > box {
+  background-color: @background;
+  padding: 5 20;
+}
+
+#image {
+  border-radius: 10;
+}
+
+#text {
+  color: @foreground;
+  padding: 8 10;
+}
+#custom-text {
+  /* font-style: italic; */
+  /* font-size: 10; */
+  color: alpha(@foreground, 0.5);
+}
+#custom-title {
+  font-weight: bold;
+}
+#custom-artist {
+  /* color: alpha(@foreground, 0.9); */
+}
+
+#custom-progress {
+  /* background: linear-gradient(90deg, @blue 10%, @module-bg 0%); */
+  font-size: 11;
+  padding: 0 30 0 0;
+}
+
+/* buttons */
+#custom-prev,
+#custom-next {
+  /* background: @module-bg; */
+  color: @module-bg;
+  margin: 10 5;
+  padding: 10 12 10 8;
+  font-size: 16;
+  transition: all 0.3s ease-in-out;
+}
+#custom-prev:hover,
+#custom-next:hover {
+  /* background-color: @module-bg; */
+  color: @foreground;
+}
+
+#custom-play {
+  background: @module-bg;
+  color: @foreground;
+  font-family: "MonaspiceNe Nerd Font";
+  border-radius: 10;
+  padding: 5 12 5 12;
+  margin: 10 5;
+  font-size: 24;
+  transition: all 0.3s ease-in-out;
+}
+#custom-play:hover {
+  background-color: @blue;
+  color: @white;
+}

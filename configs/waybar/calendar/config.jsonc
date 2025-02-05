@@ -1,0 +1,348 @@
+{
+    "layer": "top",
+    "position": "left",
+    "exclusive": false,
+    "spacing": 0,
+
+    "modules-left": [
+        "custom/month",
+        //"clock",
+        "group/dates"
+    ],
+    "modules-center": [],
+    "modules-right": [],
+
+    "custom/month": {
+        "format": "{}",
+        "interval": 43200,
+        "tooltip": false,
+        "return-type": "bash",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh month"
+    },
+    "clock": {
+        "format": "Today is {:%A}",
+        "tooltip": false
+    },
+
+    "custom/sunday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh sunday"
+    },
+    "custom/monday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh monday"
+    },
+    "custom/tuesday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tuesday"
+    },
+    "custom/wednesday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh wednesday"
+    },
+    "custom/thursday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh thursday"
+    },
+    "custom/friday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh friday"
+    },
+    "custom/saturday": {
+        "format": "{}",
+        "tooltip": false,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh saturday"
+    },
+
+    "group/dates": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/sunday",
+            "group/monday",
+            "group/tuesday",
+            "group/wednesday",
+            "group/thursday",
+            "group/friday",
+            "group/saturday"
+        ]
+    },
+
+    // Sunday
+    "group/sunday": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/sunday",
+            "custom/su1",
+            "custom/su2",
+            "custom/su3",
+            "custom/su4",
+            "custom/su5"
+        ]
+    },
+    "custom/su1": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh su1"
+    },
+    "custom/su2": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh su2"
+    },
+    "custom/su3": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh su3"
+    },
+    "custom/su4": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh su4"
+    },
+    "custom/su5": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh su5"
+    },
+
+    // Monday
+    "group/monday": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/monday",
+            "custom/mo1",
+            "custom/mo2",
+            "custom/mo3",
+            "custom/mo4",
+            "custom/mo5"
+        ]
+    },
+    "custom/mo1": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh mo1"
+    },
+    "custom/mo2": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh mo2"
+    },
+    "custom/mo3": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh mo3"
+    },
+    "custom/mo4": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh mo4"
+    },
+    "custom/mo5": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh mo5"
+    },
+
+    // Tuesday
+    "group/tuesday": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/tuesday",
+            "custom/tu1",
+            "custom/tu2",
+            "custom/tu3",
+            "custom/tu4",
+            "custom/tu5"
+        ]
+    },
+    "custom/tu1": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tu1"
+    },
+    "custom/tu2": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tu2"
+    },
+    "custom/tu3": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tu3"
+    },
+    "custom/tu4": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tu4"
+    },
+    "custom/tu5": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/calendar/exec.sh tu5"
+    },
+
+// Wednesday
+"group/wednesday": {
+    "orientation": "vertical",
+    "modules": [
+        "custom/wednesday",
+        "custom/we1",
+        "custom/we2",
+        "custom/we3",
+        "custom/we4",
+        "custom/we5"
+    ]
+},
+"custom/we1": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh we1"
+},
+"custom/we2": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh we2"
+},
+"custom/we3": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh we3"
+},
+"custom/we4": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh we4"
+},
+"custom/we5": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh we5"
+},
+
+// Thursday
+"group/thursday": {
+    "orientation": "vertical",
+    "modules": [
+            "custom/thursday",
+        "custom/th1",
+        "custom/th2",
+        "custom/th3",
+        "custom/th4",
+        "custom/th5"
+    ]
+},
+"custom/th1": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh th1"
+},
+"custom/th2": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh th2"
+},
+"custom/th3": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh th3"
+},
+"custom/th4": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh th4"
+},
+"custom/th5": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh th5"
+},
+
+// Friday
+"group/friday": {
+    "orientation": "vertical",
+    "modules": [
+            "custom/friday",
+        "custom/fr1",
+        "custom/fr2",
+        "custom/fr3",
+        "custom/fr4",
+        "custom/fr5"
+    ]
+},
+"custom/fr1": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh fr1"
+},
+"custom/fr2": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh fr2"
+},
+"custom/fr3": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh fr3"
+},
+"custom/fr4": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh fr4"
+},
+"custom/fr5": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh fr5"
+},
+
+// Saturday
+"group/saturday": {
+    "orientation": "vertical",
+    "modules": [
+            "custom/saturday",
+        "custom/sa1",
+        "custom/sa2",
+        "custom/sa3",
+        "custom/sa4",
+        "custom/sa5"
+    ]
+},
+"custom/sa1": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh sa1"
+},
+"custom/sa2": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh sa2"
+},
+"custom/sa3": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh sa3"
+},
+"custom/sa4": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh sa4"
+},
+"custom/sa5": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/calendar/exec.sh sa5"
+}
+}

@@ -1,0 +1,59 @@
+
+#!/bin/bash
+
+# Mendapatkan bulan dan tahun saat ini
+bulan=$(date +'%m')
+tahun=$(date +'%Y')
+
+# Mendapatkan bulan dan tahun sebelumnya
+bulan_sebelumnya=$(date -d "$tahun-$bulan-01 -1 month" +'%m')
+tahun_sebelumnya=$(date -d "$tahun-$bulan-01 -1 month" +'%Y')
+
+# Mendapatkan hari pertama bulan tersebut (misalnya, Senin, Selasa, dst.)
+hari_pertama=$(date -d "$tahun-$bulan-01" +'%u')
+
+# Mendapatkan jumlah hari dalam bulan tersebut
+jumlah_hari=$(cal $bulan $tahun | awk 'NF {DAYS = $NF}; END {print DAYS}')
+
+# Mendapatkan jumlah hari dalam bulan sebelumnya (untuk mengisi kolom kosong)
+jumlah_hari_sebelumnya=$(cal $bulan_sebelumnya $tahun_sebelumnya | awk 'NF {DAYS = $NF}; END {print DAYS}')
+
+# Menampilkan header (nama hari)
+echo "Su Mo Tu We Th Fr Sa"
+
+# Mengatur jumlah spasi sebelum tanggal pertama berdasarkan hari pertama
+spasi=$((hari_pertama % 7))
+
+# Menampilkan tanggal untuk bulan sebelumnya (untuk mengisi kolom kosong)
+hari_sebelumnya=$((jumlah_hari_sebelumnya - spasi + 1))
+
+# Menampilkan baris pertama dengan tanggal bulan sebelumnya yang mengisi kolom kosong
+for ((i=1; i<=spasi; i++)); do
+  if [ $hari_sebelumnya -le $jumlah_hari_sebelumnya ]; then
+#   echo -n " $(hari_sebelumnya) "
+    echo -n " 0 "
+    ((hari_sebelumnya++))
+  else
+    echo -n "   "
+  fi
+done
+
+# Menampilkan tanggal-tanggal bulan ini
+hari=1
+baris=1
+while [ $hari -le $jumlah_hari ]; do
+  # Menampilkan tanggal bulan ini
+  if [ $hari -lt 10 ]; then
+    echo -n " $hari "
+  else
+    echo -n "$hari "
+  fi
+
+  # Setelah menampilkan tanggal, pindah ke baris berikutnya
+  if [ $(( (spasi + hari) % 7 )) -eq 0 ]; then
+    echo
+  fi
+  ((hari++))
+done
+
+echo

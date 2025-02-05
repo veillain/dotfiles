@@ -1,0 +1,9 @@
+#!/bin/bash
+
+id=$(ps -ef | grep '[w]aybar -c' | grep home/config | awk '{print $2}')
+
+if [ "$id" ]; then
+	kill $id
+else
+	waybar -c $HOME/.config/waybar/home/config.jsonc -s $HOME/.config/waybar/home/style.css &
+fi

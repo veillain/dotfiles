@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# if [ $1 = 1 ]; then
+#   lokasi="/tmp/leftbar-status"
+#   printf "" > $lokasi
+#   notify-send Active! -r 9001 -t 1000
+#   while true; do
+#     running=$(cat $lokasi)
+#     status=$(hyprctl activewindow | grep 'fullscreen: 2')
+#     webarid=$(ps -ef | grep '[w]aybar -c' | grep normal | awk '{print $2}')
+
+#     if [ "$status" ]; then
+#       if [ ! "$running" = 1 ]; then
+#         kill "$webarid"
+#         printf 1 > $lokasi
+#       fi
+#     fi
+
+#     if [ ! "$status" ]; then
+#       if [ ! "$running" = 0 ]; then
+#         printf 0 > $lokasi
+#         waybar -c $HOME/.config/waybar/normal/config.jsonc -s $HOME/.config/waybar/normal/style.css &
+#       fi
+#     fi
+#   done
+# else
+#   killall waybar &
+#   killall refresh &
+#   killall dunst &
+#   notify-send REFRESHED! -r 9001 -t 1000
+# fi
+
+if true; then
+    killall waybar
+    killall swaync
+    notify-send --urgency=low --transient "Refreshed!" "What do you think?" -r 9001 -t 2000
+    waybar -c $HOME/.config/waybar/normal/config.jsonc -s $HOME/.config/waybar/normal/style.css
+fi

@@ -1,0 +1,1567 @@
+ls
+clear
+clear
+bf
+clear
+exit
+ls
+clear
+ls -la
+clear
+sudo pacman -S eza
+clear
+exit
+z
+z .config
+clear
+sl
+exit
+ls
+clear
+ls
+cd .config
+clear
+ls
+ls -la
+clear
+cd
+nvim .bashrc
+nvim .bashrc
+ls
+eza
+clear
+eza -la
+clear
+exit
+ls
+nvim .bashrc
+clear
+exit
+ls
+clear
+nvim .bashrc
+clear
+exit
+ls
+clear
+exit
+ls
+clear
+nvim .bashrc
+clear
+exit
+exit
+:q
+clear
+exit
+nvim Downloads/dotfiles/configs/nvim/init.lua 
+nvim Downloads/dotfiles/configs/nvim/init.lua 
+clear
+exit
+ls
+cd .config
+clear
+ls
+cd nvim
+ls
+clear
+nvim init.vim
+clear
+ls
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/plugin/pm.vim --create-dirs https://git.sr.ht/~bpv/pm/blob/master/pm.vim'
+clear
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/doc/pm.txt --create-dirs https://git.sr.ht/~bpv/pm/blob/master/pm.txt'
+clear
+nvim
+clear
+nvim init.lua
+nvim init.lua
+nvim init.lua
+nvim init.lua
+clearr
+clear
+ls
+clear
+ls
+clear
+ls
+exit
+ls
+clear
+sudo pacman -S sww imagemagick
+sudo pacman -S swww imagemagick
+clear
+exit
+swww-daemon
+sudo pacman -S syncthing
+celar
+clear
+ls
+clear
+echo $HOSTNAME
+clear
+syncthing --help
+sudo pacman -Ss syncthing
+celar
+exit
+systemctl enable syncthing
+clear
+exit
+ls /etc/systemd/system/
+clear
+ls /etc/systemd/system/
+cd /etc/systemd/system/
+clear
+ls
+syncthing
+cd /etc/systemd/system/
+clear
+ls
+clear
+clear
+cd
+clear
+cd dotfiles/
+clear
+ls
+cp kanata.sh syncthing.sh
+clear
+ls
+nvim syncthing.sh 
+clear
+nvim syncthing.sh 
+nvim syncthing.sh 
+clear
+bash ./syncthing.sh 
+nvim /etc/systemd/system/syncthing.service 
+clear
+systemctl enable syncthing
+nvim syncthing.sh 
+clear
+nvim kanata.sh 
+clear
+bash ./syncthing.sh 
+systemctl start syncthing
+systemctl start syncthing
+clear
+systemctl status syncthing
+nvim syncthing.sh 
+nvim syncthing.sh 
+clear
+bash syncthing.sh 
+clear
+exit
+cd .config
+clear
+;ls
+ls
+cd systemd/
+clear
+ls
+cd user
+clear
+ls
+rm kanata.service 
+clear
+systemctl --user status syncthing
+celar
+systemctl disable syncthing
+ckear
+clear
+ls
+celar
+clear
+exit
+clear
+exit
+nvim .config/kanata/config.kbd 
+clear
+exit
+hyprctl dispatch
+hyprctl dispatch --help
+man hyprctl
+clear
+hyprctl dispatch workspace next
+hyprctl dispatch changeworkspace +1
+hyprctl dispatch changeworkspace next
+hyprctl dispatch changeworkspace next2
+hyprctl dispatch changeworkspace n2
+hyprctl dispatch changeworkspace 2
+nvim .config/hypr/hyprland.conf
+clear
+exit
+hyprctl dispatch workspace +1
+clear
+nvim .config/hypr/hyprland.conf
+clear
+clear
+nvim .config/hypr/hyprland.conf
+clear
+exit
+init.lua
+clear
+ls
+ff
+clear
+bf
+exit
+nvim .bashrc
+clear
+exit
+nvim .config/hypr/hyprland.conf
+clear
+exit
+cd dotfiles/
+bash syncthing.sh 
+nvim syncthing.sh 
+clear
+systemctl disable syncthing.sh 
+systemctl disable syncthing
+clear
+bash syncthing.sh 
+clear
+ls
+mkdir setup
+clear
+ls
+mv install.sh setup/
+mv kanata.sh 
+mv kanata.sh setup/
+mv syncthing.sh setup/
+clear
+ls
+ls setup
+clear
+clear
+exit
+clear
+exit
+systemctl status kanata
+systemctl status syncthing
+systemctl disable syncthing
+clear
+systemctl --user enable syncthing
+systemctl disable syncthing
+systemctl status syncthing
+clear
+nvim .config/systemd/user/syncthing.service 
+systemctl enable synchting
+clear
+pkill -x hyprlock
+clear
+exit
+nvim .config/hypr/hypridle.conf 
+clear
+exit
+cal
+nvim .config/waybar/calendar/exec.sh 
+clear
+exit
+cd .config/waybar/calendar/
+clear
+bash exec.sh sa1
+calendar
+bash calendar 
+bash calendar | awk 'NR==2'
+bash calendar | awk 'NR==2 {print $7}'
+clear
+date +%d
+date +%D
+date +%d
+cal --help
+clear
+calendar
+clear
+nvim calendar
+./calendar 
+clear
+./calendar
+./exec.sh sa1
+nvim calendar 
+clear
+nvim calendar 
+ls
+clear
+./calendar
+date +%d | grep -oP '0'
+date +%d | grep -oP '[0-9]'
+date +%d | grep -oP '[1-9]'
+date +%d | grep -oP '[1-9][0-9]'
+date +%d | grep '[1-9][0-9]'
+date +%d | grep -o '[1-9][0-9]'
+date +%d | grep -o '[1-9].*'
+./exec.sh saturday
+./calendar 
+./calendar | grep 1
+exit
+nvim .config/waybar/calendar/style.css 
+clear
+exit
+sudo pacman -Qe | grep nerd
+sudo pacman -S ttf-nerd-symbols
+sudo pacman -S ttf-nerd-symbol
+sudo pacman -S otf-nerd-symbol
+sudo pacman -S otf-nerd-symbols
+clear
+sudo pacman -Rnsc yazi
+sudo pacman -S yazi
+clear
+nvim .config/waybar/colors.css 
+nvim .config/waybar/media/style.css 
+clear
+exit
+nvim .config/hypr/hyprland.conf
+clear
+exit
+ls
+systemctl status kanata
+clear
+nvim .config/kanata/config.kbd 
+clear
+exit
+hyprlock
+cclear
+clear
+hypridle
+clear
+nvim .config/hypr/hypridle.conf
+clear
+exit
+pidof hyprlock
+clear
+hyprlock
+hyprlock; sleep 2 pidof hyrlock
+hyprlock; sleep 2; pidof hyrlock
+clear
+hyprlock; sleep 2; pkill -x hyrlock
+hyprlock| sleep 2; pidof hyrlock
+hyprlock | sleep 2; pkill -x hyrlock
+hyprlock | sleep 2; killall hyrlock
+hyprlock | sleep 2; pidof hyprlock
+hyprlock | sleep 2; pkill -x hyprlock
+hyprlock | sleep 2; killall hyprlock
+clear
+loginctl
+clear
+free
+clear
+exit
+echo $XDG_SESSION_TYPE
+echo $SHELL
+cat /etc/passwd
+lsblk
+clear
+lsblk
+htop
+clear
+ps
+pscccleear
+clear
+ps
+clear
+lsb_release 
+clear
+lsb_release -a
+uname -r
+clear
+ls
+nvim Downloads/dotfiles/configs/nvim/plugin/keymap.lua 
+clear
+exit
+init.lua
+clearr
+init.lua
+init.lua
+clear
+init.lua
+clear
+exit
+init.lua
+clear
+exit
+init.lua
+clear
+exit
+init.lua
+init.lua
+clear
+exit
+init.lua
+init.lua
+init.lua
+exit
+init.lua
+clear
+exit
+init.lua
+clear
+exit
+nvim .config/hypr/hyprland.conf
+clear
+ls
+clear
+exit
+sudo pacman -Ss papirus
+sudo pacman -S papirus-icon-theme
+clear
+ls
+init.lua
+init.lua
+clear
+nvim .config/foot/foot.ini 
+exit
+ls
+clear
+ls
+init.lua
+init.lua
+exit
+ls
+clear
+ls
+clear
+init.lua
+clear
+ls
+clear
+git clone https://github.com/Everblush/gtk
+cd gtk
+npm install -g scss
+sudo make install
+clear
+sudo pacman -S npm
+clear
+yay -Ss npm
+clear
+sudo pacman -S npm
+clear
+exit
+cd Downloads/
+clear
+git clone https://codeberg.org/pznguin-kyun/pengurice
+clear
+ls
+clear
+nvim .config/foot/foot.ini 
+clear
+exit
+ls
+clear
+init.lua
+clear
+exit
+nvim .config/foot/foot.ini 
+nvim .config/waybar/colors.css 
+clear
+exit
+nvim .config/foot/foot.ini
+clear
+exit
+ls
+clear
+ls
+clear
+bf
+clear
+clear
+clear
+celar
+clear
+clear
+clear
+clear
+clear
+cleaar
+celar
+clear
+clear
+clear
+clar
+clear
+exit
+cd dotfiles/
+cd configs/
+clear
+ls
+cd dwl
+clear
+ls
+./dwl
+./dwl
+clear
+exit
+sudo pacman -S wev
+clear
+wev
+clear
+wev
+cd dotfiles/configs/dwl/
+cear
+clear
+make
+cleaer
+clear
+make
+./dwl
+clear
+ls
+clear
+killall dwl
+clear
+exit
+killall dwl
+clear
+exit
+ls
+clear
+nvim .config/hypr/hyprland.conf
+clear
+ls
+clea
+clear
+swaync-client -t
+swaync-client
+clear
+swaync-client -op
+clear
+swaync-client -t
+clear
+hyprlock
+clear
+hyprlock
+wlr-randr
+clear
+sudo pacman -S wlr-randr
+clear
+wlr-randr
+wlr-randr --output eDP-1 --mode 1600x900
+man wlr-randr
+clear
+wlr-randr --output eDP-1 --mode 1600x900@60
+wlr-randr --help
+wlr-randr --output eDP-1 --mode 1600x900@60
+wlr-randr --output eDP-1 --custom-mode 1600x900@60
+clear
+ls
+clear
+rofi -show drun
+nwg-look
+clear
+exit
+clear
+waybar -c $HOME/.config/waybar/normal/config.jsonc -s $HOME/.config/waybar/normal/style.css
+nvim .bashrc
+clear
+exit
+sudo pacman -S wlroots
+clear
+exit
+sh -c '$HOME/.config/bash/refresh'
+sh -c $HOME/.config/bash/refresh
+nvim .config/hypr/hyprland.conf
+nvim dotfiles/configs/dwl/config.def.h
+clear
+exit
+clear
+exit
+pkill -x rofi | rofi -show drun
+pkill -x rofi | rofi -show drun
+wev
+ls
+clear
+exit
+exit
+exit
+man waybar-dwl
+man waybar-dwl-workspaces
+man waybar
+rofi -show drun
+waybar -c .config/waybar/normal/config.jsonc -s .config/waybar/normal/style.css
+clear
+nvim .config/waybar/normal/config.jsonc
+waybar -c .config/waybar/normal/config.jsonc -s .config/waybar/normal/style.css
+clear
+nvim .config/waybar/normal/config.jsonc
+waybar -c .config/waybar/normal/config.jsonc -s .config/waybar/normal/style.css
+clear
+nvim .config/waybar/normal/config.jsonc
+clear
+exit
+wev
+sudo pacman -S xev
+clear
+exit
+sudo pacman -Ss xev
+sudo pacman -S xorg-xev
+xev
+clear
+cd dotfiles/configs/dwl/
+clear
+bash dwl
+./dwl
+clear
+make
+./dwl
+make
+clear
+make
+clear
+make
+clar
+clear
+make
+make
+clear
+make | less
+clear
+less make
+clear
+make
+clear
+./dwl
+clear
+ls
+clcear
+clear
+make
+clear
+./dwl
+clear
+cd
+clear
+dwl
+clear
+dwl
+celar
+clear
+dwl
+clear
+dwl
+clear
+dwl
+clear
+clear
+clear
+exit
+bash .config/bash/refresh 
+clear
+exit
+clear
+dwl
+clear
+exit
+cd dotfiles/configs/dwl
+clear
+ls
+nvim config.h
+nvim config.def.h
+clear
+nvim config.def.h
+ls
+celar
+clear
+mkdir patches
+nvim patches/ipc.diff
+clear
+ls
+clear
+ls
+rm config.h
+clear
+ls
+patch -p1 < patches/ipc.diff 
+clear
+make
+ls
+clear
+rm config.h
+nvim config.def.h 
+clear
+nvim config.def.h 
+clear
+nvim patches/autostart.diff
+patch -p1 patches/autostart.diff 
+patch -p1 < patches/autostart.diff 
+clear
+make
+nvim config.def.h
+make
+clear
+rm config.h
+clear
+make
+clear
+nvim config.def.h
+clear
+nvim config.def.h
+clear
+make
+clear
+ls
+rm config.h
+clear
+make
+clear
+sudo make clean install
+clear
+nvim config.def.h
+make
+celar
+clear
+rm config.h
+celar
+clear
+make
+sudo make clean install
+clear
+nvim config.def.h
+rm config.h
+celar
+clear
+make
+sudo make clean install
+clear
+nvim config.def.h
+clear
+rm config.h
+clear
+make
+clear
+nvim config.def.h
+clear
+rm config.h
+clear
+make
+clear
+sudo make clean install
+clear
+nvim config.def.h
+clear
+rm config.h
+clear
+make
+sudo make clean install
+clear
+exit
+nvim .config/hypr/hyprland.conf
+clear
+exit
+nvim /etc/greetd/config.toml 
+clear
+exit
+nvim .config/waybar/normal/config.jsonc 
+clear
+bash .config/bash/refresh
+nvim .config/waybar/normal/config.jsonc 
+clear
+yay waybar-module-pacman-updates
+rustup default stable
+clear
+yay waybar-module-pacman-updates
+yay waybar-module-pacman-updates
+celar
+clear
+bash .config/bash/refresh 
+clear
+bf
+clear
+nvim .config/waybar/normal/config.jsonc 
+clear
+exit
+man waybar-dwm-tags
+man waybar-dwm-tag
+man waybar
+man waybar-dwl-tags
+discord
+clear
+swaync
+clear
+swaync-client -t
+clear
+bf
+clear
+bf
+bash .config/bash/blurbg 
+clear
+wlr
+clear
+sudo pacman -S wmctrl
+clear
+wmctrl
+celar
+clear
+wmctrl -d
+clear
+wmctrl
+wmctrl -l
+clear
+exit
+ls
+nvim dotfiles/configs/dwl/dwl.c
+clear
+nvim dotfiles/configs/dwl/dwl.c
+clear
+nvim .config/waybar/normal/style.css
+clear
+exit
+nvim dotfiles/configs/dwl/config.def.h
+clear
+cd dotfiles/configs/dwl/
+clear
+nvim patches/alwayscenter.diff
+rm config.h
+clear
+patch -p1 patches/alwayscenter.diff 
+patch -p1 < patches/alwayscenter.diff 
+clear
+make
+clear
+nvim patches/attachbottom.diff
+rm config.h
+patch -p1 < patches/attachbottom.diff 
+clear
+make
+clear
+nvim patches/column.diff
+rm config.h
+patch -p1 < patches/column.diff 
+clear
+make
+rm config.h
+clear
+nvim patches/customfloat.diff
+patch -p1 < patches/customfloat.diff 
+nvim dwl.c.rej
+clear
+patch -p1 < patches/customfloat.diff 
+patch -p1 < patches/customfloat.diff 
+patch -p1 < patches/customfloat.diff 
+nvim dwl.c.rej
+nvim dwl.c.rej
+patch -p1 < patches/customfloat.diff 
+patch -p1 < patches/customfloat.diff 
+clear
+nvim dwl.c.rej
+clear
+nvim config.def.h
+clear
+ls patches/
+rm patches/customfloat.diff 
+clear
+make
+clear
+nvim patches/fakefullscreen.diff
+clear
+rm config.h
+patch -p1 < patches/fakefullscreen.diff 
+nvim dwl.c.rej
+nvim dwl.c
+clear
+patch -p1 < patches/fakefullscreen.diff 
+nvim dwl.c.rej
+clear
+patch -p1 < patches/fakefullscreen.diff 
+nvim dwl.c
+clear
+patch -p1 < patches/fakefullscreen.diff 
+clear
+patch -p1 < patches/fakefullscreen.diff 
+nvim dwl.c
+clear
+patch -p1 < patches/fakefullscreen.diff 
+patch -p1 < patches/fakefullscreen.diff 
+clear
+make
+clear
+sudo make install
+nvim config.def.h
+clear
+make
+rm config.h
+clear
+make 
+sudo make clean install
+clear
+exit
+bf
+clear
+bf
+nvim /etc/greetd/config.toml 
+clear
+exit
+sudo pacman -Syu
+clear
+exit
+nvim .config/waybar/normal/config.jsonc 
+clear
+exit
+nvim .config/rofi/colors.rasi 
+clear
+celar
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+exit
+nvim .config/waybar/normal/config.jsonc 
+clear
+exit
+nvim .config/waybar/
+ls
+chmod +x exec.sh 
+exit
+nvim .config/waybar/power/config.jsonc 
+nvim .config/swaync/
+celar
+clear
+killall swaync
+clear
+nvim .config/swaync/
+nvim .config/swaync/
+clear
+exit
+nvim .config/rofi/config.rasi 
+nvim .config/waybar/calendar/style.css 
+clar
+nvim .config/waybar/power/style.css 
+man waybar-tooltips
+man waybar-tooltip
+clear
+exit
+man waybar-label
+man waybar-style
+man waybar-styles
+clear
+nvim .config/waybar/style.css
+cd .config/waybar/
+ls
+rm style.css 
+clear
+nvim colors.css 
+clear
+exit
+nvim .config/swaync/config.json 
+nvim .config/swaync/config.json 
+man 5 swaync
+nvim .config/swaync/style.css 
+clear
+exit
+man 5 swaync
+clear
+exit
+nvim .config/bash/refresh 
+clear
+exit
+nvim .config/bash/refresh 
+clear
+killall refresh
+celar
+clear
+bash .config/bash/refresh 
+bash .config/bash/refresh 
+killall refresh
+bash .config/bash/refresh 
+nvim .config/bash/refresh 
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+nvim .config/waybar/colors.css 
+clear
+exit
+nvim .config/waybar/blurbg/config.jsonc 
+clear
+exit
+ps 
+ps -e
+clear
+ps -f
+clear
+ps -ef
+clear
+ps -e
+clear
+exit
+nvim .config/bash/screenshot 
+clear
+exit
+nvim .config/bash/screenshot 
+clear
+exit
+nvim .config/bin/switchaudio 
+clear
+exit
+sudo pacman -Ss icon
+nvim .config/hypr/hyprland.conf
+clear
+exit
+nvim .config/bash/rofimoji
+clear
+exit
+sudo pacman -Syu
+clear
+exit
+nvim .config/waybar/media/config.jsonc 
+nvim .config/waybar/media/media.sh 
+clear
+exit
+lsblk
+clear
+lsblk
+cel$
+clear
+uname -r
+clear
+uname -r
+lsb_release -a
+clea
+clear
+sudo pacman -S lsb_release
+clear
+pacman -Qq
+clear
+pacman -Qq | wc -l
+whereis sh
+whereis dwl
+clear
+whereis nvim
+clear
+whereis dotman
+whereis flatpak
+clear
+whereis pacman
+clear
+echo $XDG_SESSION_TYPE
+echo $SHELL
+clear
+echo $SHELL
+cat /etc/passwd
+clear
+printenv | less
+clear
+lsblk
+clear
+lsblk -f
+clear
+top
+clear
+ps aux
+clean
+clear
+reset
+cd dotfiles
+clear
+ls
+cd configs
+clear
+ls
+cd
+clear
+sudo pacman -S awesome
+clear
+sudo pacman -S startx
+clear
+sudo pacman -S --needed awesome
+clear
+awesome
+clear
+nvim /etc/greetd/config.toml 
+clear
+exit
+clear
+ls
+awesome
+clear
+awesomewm
+clear
+awesome
+awesome
+clear
+nvim /etc/greetd/config.toml 
+nvim /etc/greetd/config.toml 
+clear
+exit
+sudo pacman -Rnsc xterm
+clear
+exit
+sudo pacman -S picom
+clear
+clear
+startx
+nvim .xinitrc 
+clear
+ls
+cat .xinitrc 
+clear
+startx
+clear
+ls
+ls .config
+clear
+startx
+clear
+exit
+sudo pacman -S xorg-server xorg-xinit xterm
+clear
+echo “exec awesome” > ~/.xinitrc
+clear
+ls
+nvim .xinitrc 
+cp /etc/xdg/awesome/rc.lua ~/.config/awesome
+clear
+cd .config/awesome 
+clear
+ls
+ls .config
+clear
+rm .config/awesome 
+clear
+cd .config
+mkdir awesome
+clear
+cd awesome
+clear
+ls
+cp /etc/xdg/awesome/rc.lua ~/.config/awesome
+ls
+clear
+nvim rc.lua 
+clear
+sudo pacman -Rnsc xorg-server xorg-xinit xterm
+sudo pacman -Rnsc xorg-server xorg-xinit 
+clear
+sudo pacman -Rnsc awesome
+clear
+exit
+rm -rf .config/awesome/
+clear
+ls .config
+clear
+exit
+nvim .config/waybar/normal/config.jsonc 
+clear
+exit
+nvim .config/waybar/colors.css 
+exit
+nvim .config/foot/foot.ini 
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+exit
+sudo pacman -Rnsc picom
+clear
+ls
+clear
+bf
+exit
+nvim .config/waybar/normal/style.css
+nvim .config/waybar/normal/config.jsonc 
+nvim .config/waybar/normal/style.css
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+exit
+sudo pacman -S gthumb
+clear
+exit
+nvim .config/waybar/colors.css 
+clear
+exit
+nvim .config/waybar/calendar/config.jsonc 
+clear
+exit
+nvim .config/waybar/calendar/config.jsonc 
+nvim .config/waybar/normal/config.jsonc 
+nvim .config/waybar/calendar/exec.sh 
+nvim .config/waybar/normal/config.jsonc 
+nvim .config/waybar/calendar/config.jsonc 
+clear
+exit
+nvim .config/waybar/colors.css 
+nvim .config/waybar/calendar/config.jsonc 
+nvim .config/waybar/calendar/exec.sh 
+nvim .config/waybar/calendar/style.css 
+nvim .config/waybar/normal/style.css 
+clear
+exit
+sudo pacman -Rnsc awesome
+clear
+sudo pacman -Syu
+clear
+exit
+nvim .config/waybar/normal/style.css 
+clear
+nvim .config/waybar/normal/style.css 
+nvim .config/hypr/hyprland.conf
+clear
+exit
+systemctl status syncthing
+clear
+sudo systemctl enable syncthing
+clear
+systemctl start syncthing
+systemctl status syncthing
+clear
+bash dotfiles/setup/syncthing.sh 
+clear
+systemctl status syncthing
+clear
+sudo systemctl disable syncthing
+celar
+sudo systemctl stop syncthing
+clear
+systemctl status syncthing
+clear
+bash dotfiles/setup/syncthing.sh 
+systemctl status syncthing
+clear
+nvim .config/systemd/user/syncthing.service 
+syncthing
+clear
+systemctl stop synchting
+systemctl --user stop syncthing
+clear
+systemctl --user status syncthing
+systemctl --user stop syncthing
+systemctl --user disable syncthing
+clear
+cd .config/systemd/user/
+clear
+ls
+ls default.target.wants/
+clear
+exit
+echo $USER
+clear
+exit
+nvim dotfiles/setup/kanata.sh 
+exit
+nvim .config/bash/battery-alert 
+clear
+acpi
+clear
+pctl
+clear
+paclt
+pactl
+clear
+pactl -h
+pactl info
+clear
+systemctl status
+clear
+systemctl status syncthing
+clear
+clear
+nvim dotfiles/setup/syncthing.sh 
+bash dotfiles/setup/syncthing.sh 
+clear
+nvim /etc/systemd/system/syncthing.service 
+cat /tmp/username.txt 
+clear
+ls
+clear
+nvim dotfiles/setup/syncthing.sh 
+clear
+bash dotfiles/setup/syncthing.sh 
+clear
+systemctl disable syncthing
+clear
+systemctl stop syncthing
+systemctl status syncthing
+clear
+ls
+clear
+bash dotfiles/setup/syncthing.sh 
+clear
+nvim dotfiles/setup/syncthing.sh 
+clear
+systemctl status syncthing
+clear
+sudo systemctl enable syncthing@veil.service
+systemctl status synthing
+systemctl status syncthing
+clear
+sudo systemctl enable syncthing@veil
+systemctl status syncthing
+clear
+nvim dotfiles/setup/syncthing.sh 
+clear
+nvim .config/bash/volume 
+clear
+nvim .config/bash/battery-alert 
+clear
+nvim .config/bash/battery-charging 
+clear
+bf
+clear
+exit
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'
+upower -d | grep "state" | head -n 1 | grep -c "discharging"
+clear
+upower -d | grep "state" | head -n 1 | grep -c "discharging"
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'
+clear
+bash .config/bash/battery-charging 
+clear
+bash .config/bash/battery-charging 
+clear
+exit
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+clear
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'
+clear
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | awk '{print $2}'
+nvim .config/bash/battery-alert 
+nvim .config/bash/battery-charging 
+clear
+exit
+cd /usr/
+ls
+cd share
+clear
+ls
+cd icons
+clear
+ls
+cd Papirus
+ls
+clear
+ls
+cat index.theme 
+clear
+ls
+ls symbolic/
+cd symbolic/
+clear
+ls
+ls emblems
+clear
+ls
+ls status
+cd /usr/share/icons/Papirus/symbolic/
+clear
+ls
+ls emblems
+ls actions
+clear
+ls
+ls categories
+clear
+ls devices
+ls /tmp
+upower -d | grep "state" | head -n 1 | grep -c "charging"
+upower -d
+clear
+upower -d | grep state
+upower -d | head -n 1
+upower -d | grep "state" | head -n 1 | grep -c "charging"
+upower -d | grep state | head -n 1 
+upower -d | grep state | head -n 1 | grep -c charging
+upower -d | grep state | head -n 1 | grep -c charging
+clear
+killall battery-alert
+bash .config/bash/battery-alert 
+clear
+bash .config/bash/battery-alert 
+bash .config/bash/battery-alert 
+clear
+bash .config/bash/battery-alert 
+clear
+upower -d | grep "state" | head -n 1 | grep -c "charging"
+upower -d | grep "state" | head -n 1 | grep -c "charging"
+upower -d | grep "state" | head -n 1 | grep -c "charging"
+clear
+bash .config/bash/battery-alert 
+clear
+cd /tmp
+ls
+rm batterystate 
+clear
+ls
+cd
+clear
+bash .config/bash/battery-alert 
+clear
+exit
+nvim .config/bash/battery-alert 
+clear
+sudo pacman -Ss youtube
+clear
+nvim .config/kanata/config.kbd 
+clear
+exit
+nvim .config/bash/refresh 
+clear
+exit
+exit
+nvim .config/hypr/hyprland.conf
+clear
+exit
+nvim .config/hypr/hyprland.conf
+nvim .config/hypr/hyprland.conf
+clear
+exit
+nvim .config/waybar/normal/style.css
+clear
+exit
+sudo pacman -Rnsc discord
+clear
+cd .config
+clear
+rm -rf discord/1
+rm -rf discord
+clear
+ls
+clear
+sudo pacman -S discrod
+sudo pacman -S discord
+clear
+cd .config
+clea
+clear
+rm -rf discord
+clear
+sudo pacman -Rnsc discord
+celar
+clear
+sudo pacman -Ss discord
+clear
+yay -Ss discord
+yay -S impregnate-bin
+clear
+sudo pacman -S discord
+yay -S lemon-cord
+yay -S lemon-cord-bin
+clear
+yay -S lemon-cord-git
+clear
+yay -S chromium-vencord-bin
+exit
+chromium-vencord-bin
+clear
+vencord
+sudo pacman -Syu
+clear
+man 5 swaync
+sudo pacman -Rnsc chromium-vencord-bin
+celar
+clear
+yay -S goofcord-bin
+clear
+yay -Ss abaddon
+clear
+yay -S abaddon
+clear
+yay -S dorion-bin
+clear
+yay -Ss crycord
+yay -S crycord
+clear
+clea
+sudo pacman -Rnsc impregnate-bin
+clear
+yay -Ss discord
+clear
+yay -Ss ripcord
+yay -Ss discord client
+clear
+clear; echo -e goofcord-bin\nabaddon\ndorion-bin\ncrycord\nendcord
+clear; echo -e "goofcord-bin\nabaddon\ndorion-bin\ncrycord\nendcord"
+
+crycord
+crycord -h
+clear
+yay -S endcord
+yay -Ss endcord
+clear
+yay -S ripcord-bin
+yay -Ss ripcord
+clear
+yay -Ss datcord
+yay -S datcord-bin
+clear
+ls
+clear
+ls
+ls .Xauthority 
+cat .Xauthority 
+cat .xinitrc 
+celar
+clear
+y
+clar
+clear
+yazi
+clear
+yay -S vencord-bin
+clear
+exit
+sudo pacman -Rnsc discord
+clear
+sudo pacman -S libnotify
+clear
+exit
+nvim .config/hypr/hyprland.conf
+clear
+exit
+sudo pacman -S pavucontrol
+celar
+exit
+cat /tmp/batterystate 
+clear
+nvim .config/bash/blurbg 
+clear
+ls
+clear
+bash .config/bash/battery-alert
+killall battery-alert
+clear
+nvim .config/bash/battery-alert 
+clear
+bash .config/bash/battery-alert 
+nvim .config/bash/battery-
+nvim .config/bash/battery-alert
+clear
+bash .config/bash/battery-alert 
+ls /tmp
+clear
+bash .config/bash/battery-alert 
+nvim .config/bash/battery-alert
+clear
+exit
+upower -d | grep "state" | head -n 1 | grep -c "discharging"
+clear
+clear
+upower -d | grep "state" | head -n 1 | grep -c "discharging"
+nvim .bashrc
+clear
+ls
+exit
+bash .config/bash/battery-alert 
+clear
+bash .config/bash/battery-alert 
+clear
+clear
+bash .config/bash/battery-alert 
+clear
+cd .config/bash
+ls
+rm battery-charging 
+clear
+ls
+cat bashist
+clear
+ls
+nvim rofi.sh
+rm rofi.sh
+clear
+ls

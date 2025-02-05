@@ -1,0 +1,32 @@
+@define-color background #141b1e;
+@define-color foreground #dadada;
+@define-color module-bg #232a2d;
+@define-color very-dark-gray #101618;
+@define-color dark-gray #1C2224;
+@define-color gray #2D3133;
+@define-color light-gray #414749;
+@define-color blue alpha(@foreground, 0.2); /* #67b0e8; Or #71baf2 if you prefer brighter */
+@define-color blue-lighter #71baf2;
+@define-color muted-green #8ccf7e;
+@define-color muted-green-lighter #96d988;
+@define-color deep-brown #232a2d;
+@define-color deep-brown-lighter #b3b9b8;
+@define-color muted-red #e57474;
+@define-color white #dadada;
+@define-color blues #67B0E8;
+@define-color light-blue #71baf2;
+@define-color light-cyan #6cbfbf;  /* Or #67cbe7 if you prefer brighter */
+@define-color light-red #ef7e7e;
+@define-color light-green #8ccf7e;
+@define-color light-yellow #f4d67a;
+@define-color light-purple #ce89df;
+
+tooltip {
+    background-color: @background;
+    border: 2px solid @module-bg;
+    border-radius: 3;
+}
+tooltip label {
+    color: @white;
+    padding: 5;
+}

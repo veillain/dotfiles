@@ -1,0 +1,58 @@
+#!/bin/bash
+# Tiny colored fetch script
+# originally created by elenapan @ github
+# customized to my liking veillain @ github
+
+f=3 b=4
+for j in f b; do
+  for i in {0..7}; do
+    printf -v $j$i %b "\e[${!j}${i}m"
+  done
+done
+d=$'\e[1m'
+t=$'\e[0m'
+v=$'\e[7m'
+l=$'\033[1m'
+
+# Items
+sep=
+s=$d$f0$sep$t
+
+h=wm
+wmname="$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}') -notype -f _NET_WM_NAME 8t | grep "WM_NAME" | cut -f2 -d \")"
+
+pkg=pk
+pkgs=$(pacman -Q | wc -l)
+
+k=kr
+kernel="$(uname -r | cut -d '-' -f1)"
+
+r=rs
+resolution="$(hyprctl monitors | grep availableModes | awk '{print $2}' | sed 's/@.*//')"
+
+sh=sh
+shell=$(basename $SHELL)
+
+cp=cp
+cpusage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
+
+# (\ /)
+# ( · ·)
+# c(")(")
+
+# (\ /)
+# ( . .)
+# c(")(")
+
+tput clear
+cat << EOF
+
+             $d$f1$h  $t$wmname
+     _       $d$f3$k  $t$kernel
+    / ) _    $d$f2$sh  $t$shell
+   ( / (\)   $d$f4$pkg  $t$pkgs
+   ( $d. .$t)    $d$f5$r  $t$resolution
+   c($f1"$t)($f1"$t)   $d$f7$cp  $t$cpusage
+
+
+EOF

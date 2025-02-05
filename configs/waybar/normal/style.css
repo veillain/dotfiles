@@ -1,0 +1,354 @@
+* {
+    font-family: "Symbols Nerd Font", "MonaspiceXe Nerd Font";
+    font-size: 12px;
+}
+
+@import "../colors.css";
+
+window#waybar {
+    background-color: transparent;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar > box {
+    /* border-radius: 0 3 3 0; */
+    border: 0px #000000;
+    /* margin: 4px; */
+    padding: 5 5 5 5;
+    background-color: @background;
+    /*box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1); */
+}
+
+
+/* ---- Search ---- */
+
+#search {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 5 5;
+    transition: all 0.3s ease-in-out;
+}
+#search:hover {
+    background-color: @foreground;
+    color: @background;
+}
+
+#custom-search {
+    border-radius: 3;
+    background-color: inherit;
+    margin: 3 3 0 3;
+    padding: 9 4 9 6;
+    transition: all 0.2s ease-in-out;
+}
+#custom-terminal {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 3 3 3 3;
+    padding: 8 5 8 5;
+    transition: all 0.2s ease-in-out;
+}
+#custom-browser {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 0 3 3 3;
+    padding: 8 5 8 5;
+    transition: all 0.2s ease-in-out;
+}
+#custom-clipboard {
+    border-radius: 3;
+    background-color: inherit;
+    color: @background;
+    margin: 0 3 3 3;
+    padding: 8 5 8 5;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-search:hover,
+#custom-terminal:hover,
+#custom-browser:hover,
+#custom-clipboard:hover {
+    background-color: @module-bg;
+    color: @foreground;
+}
+
+#workspaces {
+    margin: 0 5 0 5;
+    background-color: inherit; 
+    border-radius: 3;
+    padding: 5 0;
+}
+#workspaces button {
+    border-radius: 3;
+    background-color: inherit;
+    color: inherit;
+    transition: all 0.3s linear;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    margin: 3 5 3 5;
+    padding: 0;
+}
+
+#workspaces button:hover {
+    background-color: @blue;
+}
+
+#workspaces button.persistent {
+    color: alpha(@foreground, 0.666);
+}
+
+#workspaces button.empty {
+    color: alpha(@foreground, 0.1);
+}
+
+
+#workspaces button.active,
+#workspaces button.visible {
+    font-weight: bold;
+    color: @muted-green;
+    background-color: inherit;
+    transition: all 0.3s ease-in-out;
+}
+#workspaces button.active:hover {
+    background-color: @blue;
+}
+
+#workspaces button.urgent {
+    background-color: @muted-red;
+}
+
+#tags {
+    margin: 0 5;
+    border-radius: 3;
+    background-color: @module-bg;
+    padding: 2;
+}
+
+#tags button {
+    border-radius: 3;
+    background-color: inherit;
+    color: alpha(@white, 0.3);
+    transition: all 0.3s ease-in-out;
+    padding: 2;
+}
+#tags button.occupied {
+    color: @white;
+}
+#tags button.focused {
+    background-color: @blue;
+}
+#tags button.urgent {
+    background-color: @muted-red;
+}
+
+/* ---- Options ---- */
+
+#options {
+    background-color: @module-bg;
+    margin: 0 5 5 5;
+    border-radius: 3;
+    padding: 0 0 2 0;
+    transition: all 0.4s ease-in-out;
+}
+#options:hover {
+    background-color: @module-bg;
+    color: inherit;
+}
+
+#custom-options {
+    border-radius: 3;
+    background-color: inherit;
+    padding: 9 5 9 5;
+    margin: 3 3 0 3;
+    transition: all 0.2s ease-in-out;
+}
+#custom-options:hover {
+    background-color: @blue;
+}
+
+#volume {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3 3 3 3;
+}
+#volume:hover {
+    background-color: @light-green;
+    border: 2px solid @light-green;
+}
+#custom-volume {
+    background-color: inherit;
+    color: @background;
+    padding: 5;
+}
+#pulseaudio {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#brightness {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3;
+}
+#brightness:hover {
+    background-color: @light-blue;
+    border: 2px solid @light-blue;
+}
+#custom-brightness {
+    background-color: inherit;
+    color: @background;
+    padding: 5;
+}
+#backlight {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#packages {
+    background-color: @foreground;
+    border: 2px solid @foreground;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3;
+    margin: 3;
+}
+#packages:hover {
+    background-color: @light-yellow;
+    border: 2px solid @light-yellow;
+}
+#custom-packages {
+    background-color: inherit;
+    color: @background;
+    padding: 5 6 5 4;
+}
+#custom-packagesnum {
+    border-radius: 0 0 3 3;
+    background-color: @module-bg;
+    padding: 5;
+}
+
+#pulseaudio.muted {
+    color: @light-red;
+}
+
+/* ---- Center ---- */
+#clock {
+    background-color: @module-bg;
+    border-radius: 3;
+    font-weight: bold;
+    margin: 0 5 0 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#clock:hover {
+    background-color: @blue;
+}
+
+/* ---- Bottom ---- */
+#custom-mediabar {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10 10 10 10;
+    transition: all 0.3s ease-in-out;
+}
+#custom-mediabar:hover {
+    background-color: @blue;
+}
+
+#trayer {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10 0 10 0;
+    transition: all 0.3s ease-in-out;
+}
+#trayer:hover {
+    background-color: @blue;
+}
+#tray {
+    margin: 0 5 10 5;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+#tray > widget {
+    background-color: inherit;
+    border-radius: 3;
+    transition: all 0.3s ease-in-out;
+    padding: 10 5;
+}
+#tray > widget:hover {
+    background-color: @background;
+}
+#tray > .active {
+    background-color: inherit;
+}
+
+#custom-notification {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5 5 0 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#custom-notification:hover {
+    background-color: @blue;
+}
+
+#battery {
+    background-color: @module-bg;
+    border-radius: 3;
+    margin: 5;
+    padding: 10;
+    transition: all 0.3s ease-in-out;
+}
+#battery:hover {
+    background-color: @blue;
+}
+#battery.full {
+    color: @foreground;
+}
+#battery.charging, #battery.plugged {
+    color: @light-green;
+}
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: @foreground;
+    }
+}
+#battery.warning:not(.charging) {
+    color: @light-yellow;
+}
+#battery.critical:not(.charging) {
+    background-color: @light-red;
+    color: @background;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network {
+    background-color: transparent;
+}
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+
+

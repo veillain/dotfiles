@@ -1,0 +1,23 @@
+#!/bin/bash
+
+grepSink=$(pactl list sinks | grep -e "Sink #" | cut -d '#' -f 2)
+grepUsed=$(pactl get-default-sink analog-output)
+
+if [[ "$grepUsed" == *pci* ]]; then
+    pactl set-sink-port 0 analog-output-headphones && notify-send \
+      --hint=string:x-dunst-stack-tag:wallpaper \
+      --hint=string:synchronous:wallpaper \
+      "$@" --urgency=low --transient "🎧 Switched to Headphones" || echo "failed"
+else
+    for sinkList in $grepSink; do
+        pactl set-sink-port $sinkList analog-output-speaker && notify-send \
+      --hint=string:x-dunst-stack-tag:wallpaper \
+      --hint=string:synchronous:wallpaper \
+      "$@" --urgency=low --transient "🔊 Switched to Speakers" || echo "failed"
+        echo $sinkList
+    done
+fi
+
+echo 
+echo "$grepUsed"
+

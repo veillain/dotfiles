@@ -1,0 +1,86 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    caps spc
+    a s d f
+    j k l ;
+ )
+
+(defvar
+    quicktap 200
+    quickhold 200
+    tap-time 225
+    hold-time 225
+    2ap-time 310
+    2old-time 310
+)
+
+(defalias
+    ;; ---- Others Things ----
+    caps-mod (tap-hold $tap-time $hold-time esc grv)
+    spc-mod (tap-hold $quicktap $quickhold spc lsft)
+
+    ;; ---- Left Home Row ----
+    a-mod (tap-hold $quicktap $quickhold a (layer-while-held extend))
+    s-mod (tap-hold $tap-time $hold-time s rsft)
+    d-mod (tap-hold $tap-time $hold-time d lsft)
+    f-mod (tap-hold $tap-time $hold-time f lctl)
+
+    ;; ---- Right Home Row ----
+    j-mod (tap-hold $tap-time $hold-time j lctl)
+    k-mod (tap-hold $tap-time $hold-time k lsft)
+    l-mod (tap-hold $tap-time $hold-time l rsft)
+    ;-mod (tap-hold $tap-time $hold-time ; (layer-while-held extend))
+
+    ;; ---- Mouse Things ----
+    mwu (mwheel-up 50 120)
+    mwd (mwheel-down 50 120)
+    mwl (mwheel-left 50 120)
+    mwr (mwheel-right 50 120)
+)
+
+(deflayer base
+    @caps-mod @spc-mod
+    @a-mod @s-mod @d-mod @f-mod
+    @j-mod @k-mod @l-mod @;-mod
+)
+
+;; The extend layer using a & ;
+(deflayermap (extend)
+    ;; ---- HomeMods Layers ----
+    a return
+    s lalt
+    d lsft
+    f lctl
+
+    h left
+    j down
+    k up
+    l right
+
+    ; return
+    ' \
+
+    q S-1
+    w S-2
+    e S-3
+    r S-4
+    t S-5
+    y S-6
+    u S-7
+    i S-8
+    o -
+    p =
+
+    z [
+    x {
+    c -
+    v =
+
+    n bspc
+    m bspc
+    , home
+    . end
+)

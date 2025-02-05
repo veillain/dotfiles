@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+# ---- Config ----
+choice=$1
+format=$(date +'%Y.%m.%d_%A[%H:%M:%S].png')
+
+# ---- Mission Starto -----
+if ls $HOME/Pictures/Screenshots; then
+  echo Detected
+else
+  mkdir -p $HOME/Pictures/Screenshots
+fi
+
+
+if [ $choice = "screen" ]; then
+  grim $HOME/Pictures/Screenshots/${format}
+  if [ $? -eq 0 ]; then
+    notify-send --urgency=low --transient "📷Screenshot Captured!" -r 9005 -t 2000
+  else
+    echo "error"
+  fi
+elif [ $choice = "window" ]; then
+  activewindow1=$(hyprctl activewindow | grep at: | awk '{print $2}')
+  activewindow2=$(hyprctl activewindow | grep size: | awk '{print $2}' | sed 's/,/x/')
+  grim -g "$activewindow1 $activewindow2" $HOME/Pictures/Screenshots/Region-${format}
+  if [ $? -eq 0 ]; then
+    notify-send --urgency=low --transient "📷Windowshot Captured!" -r 9005 -t 2000
+  else
+    notify-send --urgency=low --transient "❗There's no Active Window!" -r 9005 -t 2000
+  fi
+fi

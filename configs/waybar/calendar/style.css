@@ -1,0 +1,104 @@
+* {
+    font-family: Product Sans;
+    font-size: 16px;
+}
+
+@import "../colors.css";
+
+window#waybar {
+    background-color: transparent;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar > box {
+    border-radius: 3;
+    background-color: transparent;
+    margin-left: 5;
+    margin-top: 5;
+}
+
+#custom-month {
+    background-color: @background;
+    color: @light-green;
+    border-radius: 3 3 0 0;
+    /* border-top: 2px solid @light-blue; */
+    font-weight: bold;
+    padding: 25 0 10 0;
+}
+#clock {
+    background-color: @background;
+    color: alpha(@foreground, 0.5);
+    font-size: 10;
+    padding: 0 5 15 5;
+}
+
+#days {
+    background: @background;
+    padding: 0 20;
+}
+
+#dates {
+    background: @background;
+    border-radius: 0 0 3 3;
+    /* border-bottom: 2px solid @light-blue; */
+    padding: 0 20 31 20;
+}
+
+#custom-sunday {
+    /*background-color: @module-bg;*/
+    border-radius: 3 0 0 3;
+    padding: 5;
+    font-size: 12;
+    font-weight: bold;
+}
+#custom-monday, #custom-tuesday, #custom-wednesday, #custom-thursday, #custom-friday {
+    /*background-color: @module-bg;*/
+    padding: 5;
+    font-size: 12;
+    font-weight: bold;
+}
+#custom-saturday {
+    /*background-color: @module-bg;*/
+    border-radius: 0 3 3 0;
+    padding: 5;
+    font-size: 12;
+    font-weight: bold;
+}
+
+#custom-sunday.today, #custom-monday.today, #custom-tuesday.today, #custom-wednesday.today, #custom-thursday.today, #custom-friday.today, #custom-saturday.today {
+    /*background-color: @blue;*/
+    color: @light-green;
+    border-radius: 3;
+    font-weight: bold;
+}
+
+#custom-su1, #custom-su2, #custom-su3, #custom-su4, #custom-su5,
+#custom-mo1, #custom-mo2, #custom-mo3, #custom-mo4, #custom-mo5,
+#custom-tu1, #custom-tu2, #custom-tu3, #custom-tu4, #custom-tu5,
+#custom-we1, #custom-we2, #custom-we3, #custom-we4, #custom-we5,
+#custom-th1, #custom-th2, #custom-th3, #custom-th4, #custom-th5,
+#custom-fr1, #custom-fr2, #custom-fr3, #custom-fr4, #custom-fr5,
+#custom-sa1, #custom-sa2, #custom-sa3, #custom-sa4, #custom-sa5 {
+    padding: 10 5 3 5;
+    font-size: 12;
+    font-weight: bold;
+}
+
+#custom-su1.today, #custom-su2.today, #custom-su3.today, #custom-su4.today, #custom-su5.today,
+#custom-mo1.today, #custom-mo2.today, #custom-mo3.today, #custom-mo4.today, #custom-mo5.today,
+#custom-tu1.today, #custom-tu2.today, #custom-tu3.today, #custom-tu4.today, #custom-tu5.today,
+#custom-we1.today, #custom-we2.today, #custom-we3.today, #custom-we4.today, #custom-we5.today,
+#custom-th1.today, #custom-th2.today, #custom-th3.today, #custom-th4.today, #custom-th5.today,
+#custom-fr1.today, #custom-fr2.today, #custom-fr3.today, #custom-fr4.today, #custom-fr5.today,
+#custom-sa1.today, #custom-sa2.today, #custom-sa3.today, #custom-sa4.today, #custom-sa5.today {
+    /*background-color: @blue;*/
+    color: @light-green;
+    border-radius: 3;
+    font-weight: bold;
+}
+
+#custom-su1.last-month, #custom-mo1.last-month, #custom-tu1.last-month, #custom-we1.last-month, #custom-th1.last-month, #custom-fr1.last-month, #custom-sa1.last-month {
+    color: transparent;
+}
